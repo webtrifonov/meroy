@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Currency;
 use App\Models\Product;
+
 class ProductController extends SiteController
 {
     /**
@@ -28,7 +29,6 @@ class ProductController extends SiteController
     {
         $categories = Category::pluck('title', 'id');
         $currencies = Currency::pluck('id', 'title');
-        //dump($categories);
         return view('admin.product.create', compact('categories', 'currencies'));
     }
 
@@ -69,9 +69,8 @@ class ProductController extends SiteController
     public function show($id)
     {
         $categories = Category::all();
-        $demo_popular_products = Product::demo_popular_products();
-        $product = Product::with('category')->find($id);
-        $product->mini_description = (strlen($product->description)>100)? substr($product->description, 0, 300).'...' : $product->description;
+        $demo_popular_products = Product::demoPopularProducts();
+        $product = Product::withMiniDescription($id);
         return view('product', compact('categories', 'product', 'demo_popular_products'));
     }
 

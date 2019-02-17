@@ -5,6 +5,7 @@ namespace App\Http\Controllers\ProjectControllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Slider;
+
 class SliderController extends Controller
 {
     /**

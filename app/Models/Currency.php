@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Currency extends Model
 {
-   public function products(){
-   	return $this->hasMany('App\Models\Product');
-   }
+    public function products()
+    {
+        return $this->hasMany('App\Models\Product');
+    }
 }

@@ -10,20 +10,29 @@ class Product extends Model
    protected $casts = [
       'images' => 'array',
       'property_set' => 'array',
-   	'value_set' => 'array'
+      'value_set' => 'array'
    ];
-   public function category(){
-   	return $this->belongsTo('App\Models\Category');
+   public function category()
+   {
+      return $this->belongsTo('App\Models\Category');
    }
-   public function currency(){
-   	return $this->belongsTo('App\Models\Currency');
+   public function currency()
+   {
+      return $this->belongsTo('App\Models\Currency');
    }
-   public static function demo_new_products(){
+   public static function withMiniDescription($id)
+   {
+      $product = Product::with('category')->find($id);
+      $product->mini_description = (strlen($product->description)>100)? substr($product->description, 0, 300).'...' : $product->description;
+      return $product;
+   }
+   public static function demoNewProducts()
+   {
       return Product::with('currency')->take(4)->orderBy('updated_at', 'created_at', 'DESC')->get();
    }
-   public static function demo_popular_products(){
+   public static function demoPopularProducts()
+   {
       //change
       return Product::with('currency')->take(4)->orderBy('updated_at', 'created_at', 'DESC')->get();
    }
-
 }

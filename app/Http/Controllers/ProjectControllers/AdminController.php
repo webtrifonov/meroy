@@ -7,7 +7,8 @@ use App\Http\Controllers\Controller;
 
 class AdminController extends SiteController
 {
-   public function show(){
-   	return view('admin.admin');
-   }
+    public function show()
+    {
+        return view('admin.admin');
+    }
 }

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Product;
+
 class CategoryController extends SiteController
 {
     /**
