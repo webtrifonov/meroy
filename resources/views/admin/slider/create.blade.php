@@ -1,0 +1,43 @@
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-3">
+            @include('layouts.adminmenu')
+        </div>
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-header"><h3>Добавить слайд</h3></div>
+                <div class="card-body">
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+                    
+                    {!! Form::open(['route' => 'slide.store', 'method' => 'post', 'files' => true]) !!}
+                        {{ Form::token() }}
+                        <div class="form-group">
+                            {{ Form::label('title', 'Наименование') }}
+                            {{ Form::text('title', null, ['class' => 'form-control']) }}
+                        </div>
+
+
+                        <div class="form-group">
+                            {{ Form::label('image', 'Изображение') }}
+                            {{ Form::file('image', ['class' => 'form-control']) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ Form::label('path', 'Путь') }}
+                            {{ Form::text('path', null, ['class' => 'form-control']) }}
+                        </div>
+                       {{ Form::submit('Добавить', ['class' => 'btn btn-primary']) }} 
+                    {!! Form::close() !!}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
