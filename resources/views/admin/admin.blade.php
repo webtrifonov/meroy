@@ -16,7 +16,33 @@
                         </div>
                     @endif
 
-                    Добро пожаловать в админ панель
+                    <h3>Сообщения</h3>
+                    @if(!empty($contacts))
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <td><b>#</b></td>
+                                <td><b>От кого</b></td>
+                                <td><b>E-mail</b></td>
+                                <td><b>Тема</b></td>
+                                <td><b>Сообщение</b></td>
+                                <td><b>Дата написания</b></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($contacts as $k => $contact)
+                            <tr>
+                                <td>{{ $k+1 }}</td>
+                                <td>{{ $contact->name }}</td>
+                                <td>{{ $contact->email }}</td>
+                                <td>{{ $contact->theme }}</td>
+                                <td>{{ $contact->message }}</td>
+                                <td>{{ $contact->created_at }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                    @endif
                 </div>
             </div>
         </div>

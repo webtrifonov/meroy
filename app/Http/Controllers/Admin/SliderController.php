@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\ProjectControllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -52,7 +52,7 @@ class SliderController extends Controller
             $formInput['image'] = $imageName;
         }
         Slider::create($formInput);
-        return redirect()->route('slide.create');
+        return redirect()->route('slide.index');
     }
 
     /**

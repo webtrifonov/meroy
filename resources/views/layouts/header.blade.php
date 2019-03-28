@@ -43,13 +43,13 @@
 		</div>
 	</div>
 	<div class="col_1_of_4 span_1_of_4" style="border: 0">
-			<div class="auth_account">
-				<ul>
-					<li><a href="{{ route('register') }}">Регистрация</a></li><span> | </span> 
-					<li><a href="{{ route('login') }}">Вход</a></li><span> | </span> 
-					<li><a href="{{ route('index') }}">Мой аккаунт</a></li>
-				</ul>
-			</div>
+		<div class="auth_account">
+			<ul>
+				<li><a href="{{ route('register') }}">Регистрация</a></li><span> | </span> 
+				<li><a href="{{ route('login') }}">Вход</a></li><span> | </span> 
+				<li><a href="{{ route('index') }}">Мой аккаунт</a></li>
+			</ul>
+		</div>
 	</div>
 	<div class="clear"></div>
 	

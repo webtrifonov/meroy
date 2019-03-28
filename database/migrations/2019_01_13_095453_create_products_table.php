@@ -19,10 +19,10 @@ class CreateProductsTable extends Migration
             $table->text('description');
             $table->text('images');
             $table->integer('price')->unsigned();
-            $table->integer('totalcount')->default(1);
             $table->text('property_set');
             $table->text('value_set');
             $table->string('alias', 50)->unique();
+            $table->integer('watched')->default(0);
             //references
             $table->integer('currency_id')->unsigned();
             $table->foreign('currency_id')->references('id')->on('currencies')->onDelete('cascade')->onUpdate('cascade');

@@ -35,12 +35,12 @@
 		<div class="section group">
 			<div class="cont-desc span_1_of_2">
 				@yield('product')
-				@yield('popular_products')
 			</div>
 			<div class="rightsidebar span_3_of_1">
 				@yield('menu')
 			</div>
 		</div>
+		@yield('popular_products')
 	</div>
 </div>
 </div>

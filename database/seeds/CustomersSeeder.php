@@ -20,7 +20,6 @@ class CustomersSeeder extends Seeder
       		'address' => 'ул. Советов 14',
       		'login' => 'ilya',
       		'password' => '123456'
-
       	],[
       		'surname' => 'Колов',
       		'name' => 'Дима',
@@ -29,7 +28,15 @@ class CustomersSeeder extends Seeder
       		'address' => 'ул. Советов 15',
       		'login' => 'dima',
       		'password' => '123456'
-      	]
+      	],[
+          'surname' => 'Дулова',
+          'name' => 'Лена',
+          'patronymic' => 'Васильевна',
+          'email' => 'lena@mail.ru',
+          'address' => 'ул. Советов 2',
+          'login' => 'lena',
+          'password' => '123456'
+        ],
       ]);
     }
 }

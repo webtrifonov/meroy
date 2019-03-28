@@ -6,12 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-   protected $fillable = ['title', 'description', 'images', 'price', 'totalcount', 'property_set', 'value_set', 'currency_id', 'category_id', 'alias'];
+   const ELEMS_IN_DEMO_BLOCK = 4;
+   protected $guarded = ['id'];
    protected $casts = [
       'images' => 'array',
       'property_set' => 'array',
       'value_set' => 'array'
    ];
+   protected $perPage = 3;
    public function category()
    {
       return $this->belongsTo('App\Models\Category');
@@ -22,17 +24,29 @@ class Product extends Model
    }
    public static function withMiniDescription($id)
    {
+
       $product = Product::with('category')->find($id);
-      $product->mini_description = (strlen($product->description)>100)? substr($product->description, 0, 300).'...' : $product->description;
+      $product->watched += 1;
+      $product->save();
+      $product->mini_description = (strlen($product->description) > 100)? substr($product->description, 0, 300).'...' : $product->description;
       return $product;
    }
+
+   public static function newProducts()
+   {
+      return Product::with('currency')->orderBy('updated_at', 'created_at', 'DESC')->paginate();
+   }
+   public static function popularProducts()
+   {
+      return Product::with('currency')->orderBy('watched', 'DESC')->paginate();
+   }
+
    public static function demoNewProducts()
    {
-      return Product::with('currency')->take(4)->orderBy('updated_at', 'created_at', 'DESC')->get();
+      return Product::with('currency')->take(self::ELEMS_IN_DEMO_BLOCK)->orderBy('updated_at', 'created_at', 'DESC')->get();
    }
    public static function demoPopularProducts()
    {
-      //change
-      return Product::with('currency')->take(4)->orderBy('updated_at', 'created_at', 'DESC')->get();
+      return Product::with('currency')->take(self::ELEMS_IN_DEMO_BLOCK)->orderBy('watched', 'DESC')->get();
    }
 }

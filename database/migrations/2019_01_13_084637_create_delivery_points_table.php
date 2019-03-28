@@ -30,6 +30,6 @@ class CreateDeliveryPointsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('deliverypoints');
+        Schema::dropIfExists('delivery_points');
     }
 }

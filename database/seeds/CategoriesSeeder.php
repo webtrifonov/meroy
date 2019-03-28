@@ -30,7 +30,16 @@ class CategoriesSeeder extends Seeder
       	],[
       		'title' => 'Напольные покрытия',
           'alias' => 'napolnye_pokrytiya'
-      	]
+      	],[
+          'title' => 'Бетонные изделия',
+          'alias' => 'betonnie_izdeliya'
+        ],[
+          'title' => 'Утеплители',
+          'alias' => 'yteplitely'
+        ],[
+          'title' => 'Арматура',
+          'alias' => 'armatyra'
+        ]
       ]);
     }
 }

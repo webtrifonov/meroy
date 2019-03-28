@@ -458,7 +458,7 @@ body {
 .span_1_of_4  li a {
 	font-size: 0.8125em;
 	padding: 0.4em 0;
-	color:#2A5C86;
+	color: #2A5C86;
 	font-family: 'ambleregular';
 	display: block;
 }
@@ -901,7 +901,7 @@ body {
 	margin-top:15px;
 	line-height:3em;
 }
-.span_3_of_2 .button a {
+.span_3_of_2 .button a, .button_submit {
 	padding: 12px 20px;
 	font-size: 1em;
 	font-weight: bold;
@@ -1086,8 +1086,9 @@ body {
 	margin-left: 0; 
 } 
 .images_1_of_3 {
-	width: 29.2%;
-	padding:1.5%; 
+	width: 30%;
+	padding: 1.5% 0; 
+	margin: 0 1.5%; 
 }
 .images_1_of_3  img {
 	max-width:100%;
@@ -1285,7 +1286,7 @@ body {
 	padding-bottom: 5px;
 	font-family: verdana, arial, helvetica, helve, sans-serif;
 }
-.contact-form input[type="text"], .contact-form textarea {
+.contact-form input[type="text"], .contact-form input[type="email"], .contact-form textarea {
 	padding: 8px;
 	display: block;
 	width:98%;
@@ -1302,7 +1303,7 @@ body {
 	resize: none;
 	height: 120px;
 }
-.contact-form input[type="submit"] {
+/*.contact-form input[type="submit"] {
 	font-size:1em;
 	padding:10px 15px;
 	font-family: 'ambleregular';
@@ -1318,7 +1319,7 @@ body {
 	transition: all 0.5s ease-in-out;
 	position: absolute;
 	right: 0;
-}
+}*/
 .contact-form input[type="submit"]:hover {
 	text-shadow: 0px 0px 1px #000;
 	background: #292929;
@@ -1993,4 +1994,21 @@ body {
 }
 .delivery_text{
 	vertical-align: top;
+	margin-left: 15px;
+}
+.delivery_item {
+	margin-bottom: 15px;
+}
+.delivery_item  h3{
+	color:#383838;
+	font-size: 1em;
+	margin:5px 0;
+	font-family: 'ambleregular';
+	text-transform: uppercase;
+}
+.delivery_item  p {
+	font-size:0.823em;
+	padding:5px 0;
+	color:#727272;
+	line-height: 1.8em;
 }

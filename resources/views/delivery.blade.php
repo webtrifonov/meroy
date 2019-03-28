@@ -6,7 +6,7 @@
 @endsection
 @section('content')
 	@forelse($delivery_points as $delivery_point)
-	<div class="delivery-item">
+	<div class="delivery_item">
 		<div class="delivery_image">
 			<img src="{{ asset('assets/images/delivery/'.$delivery_point->image) }}" alt="{{ $delivery_point->address }}">
 		</div>
@@ -17,10 +17,8 @@
 		</div>
 	</div>	
 	@empty
-123
+		<h2>Нет пунктов самовывоза</h2>
 	@endforelse
-	
-
 @endsection
 @section('footer')
 	@include('layouts.footer')
