@@ -14,7 +14,6 @@ class CategoryController extends Controller
         $categories = Category::all();
         $category = $categories->where('id', $id)->first();
         $products = Product::where('category_id', $id)->paginate();
-        dump($category);
         if ($category == null) {
             return abort(404);
         } 

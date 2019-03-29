@@ -335,3 +335,13 @@
     margin: 0;
     text-align: center;
 }
+.pagination.page-item:first-child .page-link {
+    border-radius: 6px 0 0 6px; 
+}
+.pagination .page-item:last-child .page-link {
+    border-radius: 0 6px 6px 0; 
+}
+.page-item.active .page-link{
+    border: 1px solid #563d7c;
+    background-color: #563d7c;
+}

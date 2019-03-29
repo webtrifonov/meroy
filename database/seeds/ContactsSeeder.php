@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Models\Contact;
 
 class ContactsSeeder extends Seeder
 {
@@ -11,7 +12,7 @@ class ContactsSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('contacts')->insert([
+        Contact::create([
         [
             'name' => 'Вася',
             'email' => 'vasu@mail.ru',
