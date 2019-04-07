@@ -13,7 +13,7 @@
                     <p>{{ $error }}</p>
                 @endforeach
             @endif
-            {!! Form::open(['route' => 'post.contacts', 'method' => 'post', 'files' => true]) !!}
+            {!! Form::open(['route' => 'sendMessage', 'method' => 'post', 'files' => true]) !!}
             {{ Form::token() }}
             <div>
                 <span>{{ Form::label('surname', 'Фамилия') }}</span>
