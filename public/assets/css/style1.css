@@ -1,5 +1,6 @@
 //#212633 - black
 //#563d7c - fiolet
+//#7EA0CF - light blue
 .head_text{
     font-size: 26px;
     color: #383838;
@@ -204,42 +205,84 @@
     padding: 15px;
     border-radius: 6px;
 }
-.product .add_cart{
+.product .add_to_cart, .product .delete_to_cart{
     padding: 0;
 }
 .product a h2{
-    color: #6A82A4;
+    color: #7EA0CF;
     height: 52px;
     font-family: 'ambleregular';
     font-size: 1.1em;
     font-weight: normal;
     text-transform: uppercase;
 }
-.product .add_cart a{
-    font-size: 14px;
+.product .add_to_cart, .product .delete_to_cart{
+    font-size: 17px;
     display: block;
-    padding: 10px 15px;
+    padding: 12px 15px;
     font-family: 'ambleregular';
     background: #563d7c;
     color: #FFF;
     text-decoration: none;
+    border: none;
     outline: 0;
     -webkit-transition: all 0.5s ease-in-out;
     -moz-transition: all 0.5s ease-in-out;
     -o-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
 }
-.price_details{
+.price {
     margin: 0;
-    border-top: 1px solid #563d7c;
-}    
-.price{
-    padding-left: 0;
+    padding: 0;
+    text-align: center;
 }
-.price p{
+.price p {
     font-size: 20px;
     font-family: 'ambleregular';
     color: #383838;
+}
+.amount {
+    border: 1px solid #777;
+    display: inline-block;
+}
+.qty_number {
+    width: 50px;
+    height: 30px;
+    display: inline-block;
+
+}
+.qty_number input{
+    width: inherit;
+    height: inherit;
+    border: none;
+    text-align: center;
+    outline: none;
+    border-right: 1px solid #777;
+}
+.qty_arrows {
+    width: 20px;
+    height: 30px;
+    margin-left: -5px;
+    vertical-align: top;
+    display: inline-block;
+}
+.qty_arrow{
+    width: 20px;
+    height: 15px;
+    background-image: url(../images/icons/down-arrow.svg);
+    background-repeat: no-repeat;
+    background-size: 70%;
+    background-position: 3px;
+}
+.qty_arrow:hover {
+    background-image: url(../images/icons/down-arrow.svg);
+    background-color: #7EA0CF;
+}
+.qty_up_arrow{
+     transform: rotate(180deg);
+}
+.qty_arrows .qty_up_arrow{
+   // border-bottom: 1px solid #777;
 }
 
 .order_table{
@@ -319,6 +362,7 @@
     text-align: right;
 }
 .footer_info ul li a{
+    color: #7EA0CF;
     font-size: 13px;
 }
 .footer_info span.mobile_phone {

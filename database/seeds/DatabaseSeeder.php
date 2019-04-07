@@ -15,13 +15,12 @@ class DatabaseSeeder extends Seeder
         $this->call(CurrenciesSeeder::class);
         $this->call(SlidersSeeder::class);
         $this->call(DeliveryPointsSeeder::class);
-        $this->call(RolesSeeder::class);
-        $this->call(CustomersSeeder::class);
-
-        $this->call(ProductsSeeder::class);
-        $this->call(CartsSeeder::class);
-        $this->call(OrdersSeeder::class);
+        //$this->call(RolesSeeder::class);
+        //$this->call(CustomersSeeder::class);
         $this->call(UsersSeeder::class);
+        $this->call(ProductsSeeder::class);
+        $this->call(OrdersSeeder::class);
+        $this->call(CartProductsSeeder::class);
         $this->call(ContactsSeeder::class);
     }
 }

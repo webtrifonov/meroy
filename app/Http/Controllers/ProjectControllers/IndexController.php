@@ -18,6 +18,5 @@ class IndexController extends SiteController
         $demo_popular_products = Product::demoPopularProducts();
         $demo_new_products = Product::demoNewProducts();
         return view(env('THEME').'/index', compact('sliders', 'categories', 'products', 'demo_popular_products', 'demo_new_products'));
-        //return view('index', compact('sliders', 'categories', 'products', 'demo_popular_products', 'demo_new_products'));
     }
 }

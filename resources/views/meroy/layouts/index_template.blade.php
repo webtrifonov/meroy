@@ -44,6 +44,7 @@ $(window).load(function() {
     });
 });
 </script>
+<script src="{{ asset('assets/js/common.js') }}"></script>
 </body>
 </html>
 

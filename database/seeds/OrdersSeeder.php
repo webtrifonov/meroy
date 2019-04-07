@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Enums\OrderStatus;
 
 class OrdersSeeder extends Seeder
 {
@@ -11,25 +12,29 @@ class OrdersSeeder extends Seeder
      */
     public function run()
     {
-      DB::table('orders')->insert([
-      	[
-          'cart_id' => 1,
-      		'product_id' => 1,
-      		'count' => 2
-      	],[
-          'cart_id' => 2,
-      		'product_id' => 2,
-      		'count' => 1
-      	],[
-          'cart_id' => 3,
-      		'product_id' => 3,
-      		'count' => 10
-      	],[
-          'cart_id' => 2,          
-      		'product_id' => 4,
-      		'count' => 5
-      	],
+        \App\Models\Order::insert([
+        	[
+                'user_id' => 1,
+                'status' => OrderStatus::getKey(1),
+                'address' => 'ул. Садовая 55',
+                'total_price' => 1500
+            ],[
+                'user_id' => 2,
+                'status' => OrderStatus::getKey(2),
+                'address' => 'ул. Дефолтная 1',
+                'total_price' => 2000
+            ],[
+                'user_id' => 3,
+                'status' => OrderStatus::getKey(0),
+                'address' => null,
+                'total_price' => 3000
+            ],[
+                'user_id' => 2,
+                'status' => OrderStatus::getKey(4),
+                'address' => null,
+                'total_price' => 800
+            ],
 
-      ]);
+        ]);
     }
 }

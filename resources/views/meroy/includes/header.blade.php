@@ -17,7 +17,7 @@
             </div>
             <div class="cart_wrapper">
                 <a href="{{ route('cart') }}" class="cart_icon">
-                    <span id="cart_count">2</span> 
+                    <span id="cart_count">0</span>
                     <img src="{{ asset('assets/images/cart_icon.png') }}" alt="">
                 </a>
             </div>

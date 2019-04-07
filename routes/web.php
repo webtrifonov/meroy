@@ -16,7 +16,7 @@ Route::group(['namespace' => 'ProjectControllers'], function() {
     Route::get('/delivery', ['as' => 'delivery', 'uses' => 'SinglePageController@showDelivery']);
     Route::get('/contacts', ['as' => 'contacts', 'uses' => 'SinglePageController@showContacts']);
     
-    Route::post('/contacts', ['as' => 'postcontacts', 'uses' => 'SinglePageController@postContacts']);
+    Route::post('/contacts', ['as' => 'sendMessage', 'uses' => 'SinglePageController@postContacts']);
 
     Route::get('/product/{id}', ['as' => 'product.id', 'uses' => 'ProductController@show']);
     Route::get('/categories', ['as' => 'categories', 'uses' => 'CategoryController@showAll']); 
@@ -25,6 +25,9 @@ Route::group(['namespace' => 'ProjectControllers'], function() {
 
     Route::get('/products/new', ['as' => 'products.new', 'uses' => 'ProductController@newProducts']);
     Route::get('/products/popular', ['as' => 'products.popular', 'uses' => 'ProductController@popularProducts']);
+
+    Route::get('/registration', ['as' => 'customer.registration', 'uses' => 'CustomerAuthController@registration']);
+    Route::get('/authorization', ['as' => 'customer.authorization', 'uses' => 'CustomerAuthController@authorization']);
 });
 
 Auth::routes();

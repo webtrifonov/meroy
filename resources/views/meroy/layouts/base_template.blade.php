@@ -21,12 +21,8 @@
             @yield('content')
         </div>    
     </div>
-    <div class="row">
-        <div class="col-12">
-            @yield('footer')
-        </div>
-    </div>
 </div>
+    @yield('footer')
 </div>
 </script>
 </body>

@@ -13,7 +13,7 @@
             <p>{{ $error }}</p>
             @endforeach
         @endif
-        {!! Form::open(['route' => 'postcontacts', 'method' => 'post', 'files' => true]) !!}
+        {!! Form::open(['route' => 'post.contacts', 'method' => 'post', 'files' => true]) !!}
             {{ Form::token() }}
             <div>
                 <span>{{ Form::label('title', 'Ваше имя') }}</span>
@@ -28,12 +28,12 @@
                 <span>{{ Form::text('theme', null, ['class' => 'textbox']) }}</span>
             </div>
             <div>
-                <span>{{ Form::label('message', 'Cообщениt') }}</span>
+                <span>{{ Form::label('message', 'Cообщение') }}</span>
                 <span>{{ Form::textarea('message', null, ['class' => 'textbox']) }}</span>
             </div>
            {{ Form::submit('Отправить', ['class' => 'button_submit']) }} 
         {!! Form::close() !!}
-        <!-- <form method="POST" action="{{ route('postcontacts') }}">
+        <!-- <form method="POST" action="{{ route('post.contacts') }}">
             <div>
                 <label>Ваше имя</label>
                 <input type="text" class="textbox" >

@@ -17,7 +17,7 @@ class ProductsSeeder extends Seeder
 		*	https://leroymerlin.ru/product/kraska-vodno-dispersionnaya-cvet-belyy-2-5-kg-17664292/
 		*	
     	*/
-      DB::table('products')->insert([
+      \App\Models\Product::insert([
       	[
       		'title' => 'Бордюр «Эквилибрио» 30х6.2 см',
       		'description' => 'Бордюр «Эквилибрио» размером 30х6,2 см в холодных голубых оттенках со строгим ромбовидным узором призван завершать изысканный ансамбль, созданный керамической плиткой этой же коллекции в вашей ванной комнате. Фриз будет изящно окаймлять панно из керамики, одновременно украшая его. Бордюр «Эквилибрио» устойчив к воздействию атмосферных явлений; он не теряет цвет под солнцем, от влаги или мороза.',
@@ -25,7 +25,7 @@ class ProductsSeeder extends Seeder
       		'price' => 154,
       		'property_set' => '["Цвет","Ширина","Высота","Глубина"]',
       		'value_set' => '["Голубой","60см","50см","5мм"]',
-          'alias' => 'ekvilibrio',
+            'alias' => 'ekvilibrio',
       		'currency_id' => 2,
       		'category_id' => 5,
       	],[
@@ -35,17 +35,17 @@ class ProductsSeeder extends Seeder
       		'price' => 95,
       		'property_set' => '["Цвет","Ширина","Высота","Глубина"]',
       		'value_set' => '["Голубой","50см","50см","9мм"]',
-          'alias' => 'orhideya',
+            'alias' => 'orhideya',
       		'currency_id' => 2,
       		'category_id' => 5,
       	],[
       		'title' => 'Краска водно-дисперсионная цвет белый 2.5 кг',
       		'description' => 'Водно-дисперсионная краска для потолков отличается не только приятным матово-белым цветом, но и высоким уровнем сопротивления к повышенному уровню влажности в помещении. По сравнению с другими красками данная модель не имеет резкого запаха, а также она очень быстро высыхает. Изделие обладает высокой укрывистостью, при желании цвет можно менять при помощи обычных колеров. Тара герметично закрывается при помощи крышки, а также имеет удобную железную ручку.',
-      		'images' => '["https://images.inksoft.com/images/products/464/products/22060/Royal/front/500.png","https://images.inksoft.com/images/products/464/products/86306/Black/front/500.png"]',
+      		'images' => '["https://res.cloudinary.com/lmru/image/upload/f_auto,q_auto,b_white,d_photoiscoming.png/LMCode/15360501.jpg","https://res.cloudinary.com/lmru/image/upload/f_auto,q_auto,b_white,d_photoiscoming.png/LMCode/15360501_01.jpg"]',
       		'price' => 65,
       		'property_set' => '["Цвет","Объем"]',
       		'value_set' => '["Красная","1 литр"]',
-          'alias' => 'kraska_belaya',
+            'alias' => 'kraska_belaya',
       		'currency_id' => 2,
       		'category_id' => 3,
       	],[
@@ -55,7 +55,7 @@ class ProductsSeeder extends Seeder
       		'price' => 100,
       		'property_set' => '["Цвет","Материал"]',
       		'value_set' => '["Бежевый","Пластик"]',
-          'alias' => 'saiding_pvh',
+            'alias' => 'saiding_pvh',
       		'currency_id' => 2,
       		'category_id' => 3,
       	],[
