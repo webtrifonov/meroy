@@ -6,10 +6,9 @@
     <link href="{{ asset('assets/libs/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" media="all"/>
     <link href="{{ asset('assets/css/flexslider.css')}}" rel="stylesheet" type="text/css" media="all"/>
     <link href="{{ asset('assets/css/style1.css')}}" rel="stylesheet" type="text/css" media="all"/>
-    
 </head>
 <body>
-<div class="main-wrapper"> 
+<div class="main_wrapper">
 <div class="container">
     <div class="row">
         <div class="col-12">
@@ -30,7 +29,6 @@
             @yield('new_products')
             @yield('popular_products')
         </div>
-        
     </div>
 </div>
     @yield('footer')

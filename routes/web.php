@@ -26,10 +26,29 @@ Route::group(['namespace' => 'ProjectControllers'], function() {
     Route::get('/products/new', ['as' => 'products.new', 'uses' => 'ProductController@newProducts']);
     Route::get('/products/popular', ['as' => 'products.popular', 'uses' => 'ProductController@popularProducts']);
 
-    Route::get('/registration', ['as' => 'customer.registration', 'uses' => 'CustomerAuthController@registration']);
-    Route::get('/authorization', ['as' => 'customer.authorization', 'uses' => 'CustomerAuthController@authorization']);
-});
 
+});
+Route::group(['namespace' => 'Customer'], function() {
+    Route::get('/registration', ['as' => 'customer.registration', 'uses' => 'RegisterController@showRegistrationForm']);
+    Route::post('/registration', ['as' => 'customer.register', 'uses' => 'RegisterController@register']);
+
+    Route::get('/authorization', ['as' => 'customer.authorization', 'uses' => 'LoginController@showLoginForm']);
+    Route::post('/authorization', ['as' => 'customer.login', 'uses' => 'LoginController@login']);
+    Route::post('/log-out', ['as' => 'customer.logout', 'uses' => 'LoginController@logout']);
+
+//    Route::post('/password-email', ['as' => 'customer.password.email', 'uses' => 'ForgotPasswordController@sendResetLinkEmail']);
+//    Route::get('/password-reset', ['as' => 'customer.password.request', 'uses' => 'ForgotPasswordController@showLinkRequestForm']);
+//    Route::post('/password-reset', ['as' => 'customer.password.update', 'uses' => 'ResetPasswordController@reset']);
+//    Route::get('/password-reset/{token}', ['as' => 'customer.reset', 'uses' => 'ResetPasswordController@showResetForm']);
+
+    Route::group(['middleware' => ['auth:customer']], function() {
+        Route::get('/personal', [
+            'as' => 'customer.personal',
+            'uses' => 'CustomerController@index'
+        ]);
+    });
+
+});
 Auth::routes();
 
 Route::get('/products', function(){
@@ -51,7 +70,7 @@ Route::group([
 	Route::resource('slide', 'SliderController');
 	Route::resource('category', 'CategoryController');
 	Route::resource('product', 'ProductController');
-
+    Route::get('/orders', ['as' => 'admin.orders', 'uses' => 'OrderController@index']);
  	// Route::get('/{name}', function($n){
  		// echo $n;
 	// });

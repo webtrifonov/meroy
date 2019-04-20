@@ -11,9 +11,9 @@
         </div>
         <div class="col-12 col-sm-12 col-lg-4">
             <div class="auth_wrapper">
-                <p><a href="{{ route('login') }}">Вход</a></p>
-                <p><a href="{{ route('register') }}">Регистрация</a></p>
-                <p><a href="{{ route('index') }}">Мой аккаунт</a></p>
+                <p><a href="{{ route('customer.authorization') }}">Вход</a></p>
+                <p><a href="{{ route('customer.registration') }}">Регистрация</a></p>
+                <p><a href="{{ route('customer.personal') }}">Мой аккаунт</a></p>
             </div>
             <div class="cart_wrapper">
                 <a href="{{ route('cart') }}" class="cart_icon">

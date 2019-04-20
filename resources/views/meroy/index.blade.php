@@ -14,7 +14,7 @@
     @include('meroy.includes.new_products')
 @endsection
 @section('popular_products')
-    @include('meroy.includes.popular_products')
+    @include('meroy.includes.new_products')
 @endsection
 @section('footer')
     @include('meroy.includes.footer')

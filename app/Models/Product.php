@@ -14,6 +14,10 @@ class Product extends Model
       'value_set' => 'array'
    ];
    protected $perPage = 3;
+   public function cart_products()
+   {
+       return $this->hasMany(CartProduct::class);
+   }
    public function category()
    {
       return $this->belongsTo('App\Models\Category');

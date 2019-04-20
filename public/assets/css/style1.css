@@ -10,6 +10,7 @@
     font-weight: normal;
     text-transform: uppercase;
 }
+
 .button_big{
     padding: 12px 20px;
     font-size: 1em;
@@ -23,32 +24,42 @@
     background-color: #339933;
     margin: 0 20px;
 }
-.header{
+.header_text {
+    font-size: 26px;
+    color: #383838;
+    margin: 10px 0 15px;
+    line-height: 1.2;
+    font-family: 'ambleregular';
+    font-weight: normal;
+    text-transform: uppercase;
+    text-align: left;
+}
+.header {
     margin: 15px 0 0 0;
     vertical-align: bottom;
 }
-.search_form{
+.search_form {
     width: 100%;
 }
-.auth_wrapper, .cart_wrapper{
+.auth_wrapper, .cart_wrapper {
     display: inline-block;
     vertical-align: top;
 }
-.auth_wrapper{
+.auth_wrapper {
     text-align: right;
     margin-right: 30px;
     
 }
-.auth_wrapper p{
+.auth_wrapper p {
     margin: 0;
 }
-.auth_wrapper p:first-child{
+.auth_wrapper p:first-child {
     margin: 15px 0 0 0;
 }
-.search_button{
+.search_button {
     width: 80px;
 }
-.search_text{
+.search_text {
     width: 80%;
     max-width: 440px;
     padding: 5px 15px;
@@ -59,7 +70,7 @@
     -moz-box-shadow: 0px 2px 1px 0px rgba(51,51,51,1);
     box-shadow: 0px 2px 1px 0px rgba(51,51,51,1);
 }
-.search_button{
+.search_button {
     width: 19%;
     max-width: 80px;
     margin: 0 0 0 -5px;
@@ -77,19 +88,19 @@
     box-shadow: 0px 2px 2px 0px rgba(51,51,51,1);
 
 }
-.cart_icon:hover{
+.cart_icon:hover {
     text-decoration: none;
 }
-.cart_icon img{
+.cart_icon img {
     width: 60px;
     height: 60px;
 }
-.cart_icon:hover.cart_icon img{
+.cart_icon:hover.cart_icon img {
     background: #339933;
     border-radius: 50%;
     border: 2px outset #212633;
 }
-.cart_icon span{
+.cart_icon span {
     position: relative;
     top: 16px;
     left: -3px;
@@ -103,17 +114,17 @@
     border: 1px solid #AE2522;
     color: #fff;
 }
-.top_menu ul{
+.top_menu ul {
     margin-top: 10px;
     background-color: #212633;
     border-radius: 6px;
     padding: 0 10px 0 20px;
 }
-.top_menu ul li{
+.top_menu ul li {
     display: inline-block;
     
 }
-.top_menu ul li a{
+.top_menu ul li a {
     padding: 15px 10px;
     color: #fff;
     font-family: 'ambleregular';
@@ -130,14 +141,17 @@
     transition: all .9s;
     
 }
-.side_menu ul{
+.side_menu {
+    margin-bottom: 15px;
+}
+.side_menu ul {
     list-style-type: none;
     margin: 0;
     padding: 5px 0 5px 0;
     border: 1px solid #563d7c;
     border-radius: 0 0 6px 6px;
 }
-.side_menu h3{
+.side_menu h3 {
     border-radius: 6px 6px 0 0;
     background-color: #563d7c;
     font-size: 1.2em;
@@ -147,10 +161,10 @@
     margin: 0;
     padding-left: 20px;
 }
-.side_menu h3 > a{
+.side_menu h3 > a {
     color: #fff;
 }
-.side_menu li a{
+.side_menu li a {
     display: block;
     font-size: 13px;
     padding: 8px 15px;
@@ -161,17 +175,17 @@
     border-bottom: 1px solid #777;
     text-transform: uppercase;   
 }
-.side_menu li:last-child a{
+.side_menu li:last-child a {
     border: none;
 }
-.demo_products_header{
+.demo_products_header {
     border-radius: 6px;
     border: 1px solid #777;
     padding: 15px 5px;
     background-image: url('../images/products_pattern.png');
 }
 
-.demo_products_header h2{
+.demo_products_header h2 {
     text-align: left;
     margin: 0;
     font-family: 'ambleregular';
@@ -179,18 +193,18 @@
     color: #383838;
     text-transform: uppercase;
 }
-.demo_products_header a{
+.demo_products_header a {
     text-align: right;
     font-size: 14px;
     color: #333;
     text-decoration: underline;
     //background: url(../images/list-img.png) no-repeat right 3px;
 }   
-.demo_products_header a:hover{
+.demo_products_header a:hover {
     font-size: 0.85em;
 }
 
-.demo_products{
+.demo_products {
     text-align: center;
     margin-bottom: 15px;
 }
@@ -199,29 +213,31 @@
     height: 100%;
     max-height: 220px;
 }
-.product{
+.product {
     border: 1px solid #777;
     margin: 15px 0 0 0;
     padding: 15px;
     border-radius: 6px;
 }
-.product .add_to_cart, .product .delete_to_cart{
+.product .add_to_cart_button, .product .delete_to_cart {
     padding: 0;
 }
-.product a h2{
+.product a h2 {
     color: #7EA0CF;
     height: 52px;
     font-family: 'ambleregular';
-    font-size: 1.1em;
+    display: flex;
+    align-items: center;
+    margin: 10px 0 5px 0;
+    font-size: 18px;
     font-weight: normal;
     text-transform: uppercase;
 }
-.product .add_to_cart, .product .delete_to_cart{
+.product .add_to_cart_button, .product .delete_from_cart_button {
     font-size: 17px;
     display: block;
     padding: 12px 15px;
     font-family: 'ambleregular';
-    background: #563d7c;
     color: #FFF;
     text-decoration: none;
     border: none;
@@ -231,12 +247,16 @@
     -o-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
 }
-.price {
-    margin: 0;
+.product .add_to_cart_button {
+    background: #563d7c;
+}
+.product .delete_from_cart_button {
+    background: #FF1E2E;
+}
+.price_details {
+    margin: 0 0 5px 0;
     padding: 0;
     text-align: center;
-}
-.price p {
     font-size: 20px;
     font-family: 'ambleregular';
     color: #383838;
@@ -251,7 +271,7 @@
     display: inline-block;
 
 }
-.qty_number input{
+.qty_number input {
     width: inherit;
     height: inherit;
     border: none;
@@ -266,7 +286,7 @@
     vertical-align: top;
     display: inline-block;
 }
-.qty_arrow{
+.qty_arrow {
     width: 20px;
     height: 15px;
     background-image: url(../images/icons/down-arrow.svg);
@@ -278,22 +298,22 @@
     background-image: url(../images/icons/down-arrow.svg);
     background-color: #7EA0CF;
 }
-.qty_up_arrow{
+.qty_up_arrow {
      transform: rotate(180deg);
 }
-.qty_arrows .qty_up_arrow{
+.qty_arrows .qty_up_arrow {
    // border-bottom: 1px solid #777;
 }
 
-.order_table{
+.order_table {
     width: 100%;
 }
-.order_table thead{
+.order_table thead {
     line-height: 40px;
     background-color: #212633;
     color: #fff;
 }
-.order_table td{
+.order_table td {
     padding: 15px;
 }
 .order_table {
@@ -312,25 +332,25 @@
 .order_table tr:nth-child(even) {
     background: #EFFFEF;
 }
-.order_table_total{
+.order_table_total {
     width: 100%;
 }
-.delivery_wrap{
+.delivery_wrap {
     margin-left: 100px;
 }
-.total_price_wrapper{
+.total_price_wrapper {
     text-align: right;
     padding: 30px 0;
 }
-.total_price{
+.total_price {
     font-weight: 500;
     font-size: 22px;
     display: inline-block;
 }
-.mt15{
+.mt15 {
     margin-top: 15px;
 }
-.footer{
+.footer {
     border-top: 1px solid #CCC;
     margin-top: 15px;
     background-color: #F7F7F7;
@@ -340,10 +360,10 @@
     margin-right: 30px;
     height: 100%;
 }
-.footer_info ul, .footer_info h4{
+.footer_info ul, .footer_info h4 {
     padding-right: 15px;
 }
-.footer_info h4{
+.footer_info h4 {
     margin: 15px 0;
     text-align: right;
     font-family: 'ambleregular';
@@ -352,7 +372,7 @@
     text-transform: uppercase;
 
 }
-.footer_info ul{
+.footer_info ul {
     border-top: 1px solid #ccc;
     padding: 5px 15px 0px 0;
     margin: 0;
@@ -361,7 +381,7 @@
 .footer_info ul li {
     text-align: right;
 }
-.footer_info ul li a{
+.footer_info ul li a {
     color: #7EA0CF;
     font-size: 13px;
 }
@@ -385,7 +405,42 @@
 .pagination .page-item:last-child .page-link {
     border-radius: 0 6px 6px 0; 
 }
-.page-item.active .page-link{
+.page-item.active .page-link {
     border: 1px solid #563d7c;
     background-color: #563d7c;
+}
+.registration_wrapper .header_text, .authorization_wrapper .header_text {
+    font-size: 26px;
+    color: #383838;
+    margin: 10px 0 15px;
+    line-height: 1.2;
+    font-family: 'ambleregular';
+    font-weight: normal;
+    text-transform: uppercase;
+    text-align: left;
+}
+/* form */
+.form_item {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.form_item-label {
+    font-size: 16px;
+    margin: 0;
+}
+.form_item-input {
+    width: 100%;
+    max-width: 400px;
+}
+.required_asterisk {
+    color: #f00;
+}
+.order_table .delete_from_cart {
+    display: block;
+    width: 32px;
+    height: 32px;
+    background-image: url('../images/icons/delete.png');
+}
+.order_table .delete_from_cart:active {
+    transform: rotate(180deg);
 }

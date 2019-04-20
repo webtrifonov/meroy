@@ -8,7 +8,7 @@
         </div>
         <div class="col-md-9">
             <div class="card">
-                <div class="card-header">Моя админка</div>
+                <div class="card-header"><h3>Сообщения клиентов</h3></div>
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
@@ -16,7 +16,7 @@
                         </div>
                     @endif
 
-                    <h3>Сообщения</h3>
+
                     @if(!empty($contacts))
                     <table class="table">
                         <thead>
@@ -42,6 +42,8 @@
                             @endforeach
                         </tbody>
                     </table>
+                    @else
+                        <p>Нет сообщений</p>
                     @endif
                 </div>
             </div>

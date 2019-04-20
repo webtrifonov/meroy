@@ -13,6 +13,10 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+//Route::middleware('auth:api')->get('/user', function (Request $request) {
+//    return $request->user();
+//});
+Route::group(['prefix' => 'v0', 'namespace' => 'V0'], function() {
+    Route::post('/cart/items/{item}', ['uses' => 'CustomerController@addProductToCart']);
+    //Route::delete('/cart/item/{item}', ['uses' => 'CustomerController@deleteProductFromCart']);
 });
