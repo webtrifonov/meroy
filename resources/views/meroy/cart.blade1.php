@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="{{ asset('assets/css/pretty-checkbox.min.css') }}">
 <h2 class="header_text">Корзина</h2>
 <form action="">
-    <table class="order_table">
+    <table class="cart_table">
         <thead>
             <tr>
                 <td>#</td>

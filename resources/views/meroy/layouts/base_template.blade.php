@@ -23,7 +23,8 @@
 </div>
     @yield('footer')
 </div>
-<script src="{{ asset('assets/js/common.js') }}"></script>
+<script src="{{ asset('assets/js/cart_items.js') }}"></script>
+<script src="{{ asset('assets/js/cart.js') }}"></script>
 </body>
 </html>
 

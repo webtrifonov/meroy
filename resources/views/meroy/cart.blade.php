@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="{{ asset('assets/css/pretty-checkbox.min.css') }}">
 <h2 class="header_text">Корзина</h2>
 <form action="">
-    <table class="order_table">
+    <table class="cart_table">
         <thead>
             <tr>
                 <td>#</td>
@@ -18,28 +18,7 @@
             </tr>
         </thead>
         <tbody>
-        @forelse($cartProducts as $k => $cartProduct)
-            <tr>
-                <td>{{ $k + 1 }}</td>
-                <td>{{ $cartProduct->product->title }}</td>
-                <td>{{ $cartProduct->product->price }} <span>{{ $cartProduct->product->currency->title }}</span></td>
-                <td>
-                    <div class="amount">
-                        <div class="qty_number">
-                            <input class="amount_number" type="text" value="{{ $cartProduct->amount }}">
-                        </div>
-                        <div class="qty_arrows">
-                            <div class="qty_arrow qty_up_arrow"></div>
-                            <div class="qty_arrow qty_down_arrow"></div>
-                        </div>
-                    </div>
-                </td>
-                <td>{{ $cartProduct->product->price * $cartProduct->amount }}</td>
-                <td><div id="delete_from_cart_{{ $cartProduct->id }}" class="delete_from_cart"></div></td>
-            </tr>
-        @empty
-            <p>Нет данных</p>
-        @endforelse
+
         </tbody>    
     </table>
     
