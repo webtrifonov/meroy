@@ -1,5 +1,5 @@
 window.addEventListener('load', () => {
-	
+	//menu
 	let adminMenuItem = document.querySelectorAll('.admin_panel_menu > ul > li');
 	let subAdminMenu = document.querySelectorAll('.admin_panel_menu ul ul');
 	subAdminMenu.forEach( (item) => {
@@ -21,5 +21,6 @@ window.addEventListener('load', () => {
 			}
 		});
 	});
-
+	//delete
+	let deleteSlide = document.querySelectorAll('.delete_slide')
 });

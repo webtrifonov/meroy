@@ -35,7 +35,7 @@
                     </div>
                 </td>
                 <td>{{ $cartProduct->product->price * $cartProduct->amount }}</td>
-                <td><div id="delete_from_cart_{{ $cartProduct->id }}" class="delete_from_cart"></div></td>
+                <td><div class="delete_from_cart_{{ $cartProduct->id }}" class="delete_from_cart"></div></td>
             </tr>
         @empty
             <p>Нет данных</p>

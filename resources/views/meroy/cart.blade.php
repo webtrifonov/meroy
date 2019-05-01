@@ -5,7 +5,9 @@
 @section('content')
 <link rel="stylesheet" href="{{ asset('assets/css/pretty-checkbox.min.css') }}">
 <h2 class="header_text">Корзина</h2>
-<form action="">
+<form action="{{ route('customer.addOrder') }}" method="POST">
+    @csrf
+    <div style="display: none" class="cart_template">
     <table class="cart_table">
         <thead>
             <tr>
@@ -14,18 +16,37 @@
                 <td>Цена</td>
                 <td>Количество</td>
                 <td>Итого</td>
-                <td>Удалить</td>
+                <td></td>
             </tr>
         </thead>
         <tbody>
-
+            <tr class="cart_item_line hidden">
+                <td class="cart_item_counter"></td>
+                <td class="cart_item_title"></td>
+                <td class="cart_item_price"></td>
+                <td class="cart_item_amount">
+                    <div class="amount">
+                        <div class="qty_number">
+                            <input class="amount_number" type="text" value="1">
+                        </div>
+                        <div class="qty_arrows">
+                            <div class="qty_arrow qty_up_arrow"></div>
+                            <div class="qty_arrow qty_down_arrow"></div>
+                        </div>
+                    </div>
+                </td>
+                <td class="cart_item_total_price"></td>
+                <td class="cart_item_delete">
+                    <div class="delete_cart_item" data-delete_cart_product></div>
+                </td>
+            </tr>
         </tbody>    
     </table>
-    
+
     <div class="row total_price_wrapper">
         <div class="col-12 col-sm-6 col-lg-7">
             <div class="mt15 pretty p-svg p-curve">
-            <input type="checkbox" />
+            <input class="delivery_button" type="checkbox" />
                 <div class="state p-success">
                     <!-- svg path -->
                     <svg class="svg svg-icon" viewBox="0 0 20 20">
@@ -36,10 +57,19 @@
             </div>
         </div>
         <div class="col-12 col-sm-6 col-lg-5">
-            <label><h3 class="total_price">Итого 1800руб</h3><input class="button_big" type="submit" value="Оформить"></label>
+            <label><h3 class="cart_total_price_text">Итого: <span class="cart_total_price"></span></h3></label><input class="button_big button_green checkout_button" type="submit">{{--Оформить</input>--}}
         </div>
     </div>
+    </div>
+
+    <div style="display: none" class="no_cart_items">
+        <p>В вашей корзине ещё нет товаров.</p> <a href="{{ route('index') }}">Перейти к покупкам</a>
+    </div>
+    <div id="cart_items"></div>
 </form>
+@endsection
+@section('script')
+    <script src="{{ asset('assets/js/cart.js') }}"></script>
 @endsection
 @section('footer')
     @include('meroy.includes.footer')

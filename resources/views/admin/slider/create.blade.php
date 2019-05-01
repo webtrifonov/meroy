@@ -15,7 +15,13 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    
+                    @if($errors->any())
+                        @foreach($errors->all() as $error)
+                            <div class="error">
+                                <p class="error_message">{{ $error }}</p>
+                            </div>
+                        @endforeach
+                    @endif
                     {!! Form::open(['route' => 'slide.store', 'method' => 'post', 'files' => true]) !!}
                         {{ Form::token() }}
                         <div class="form-group">

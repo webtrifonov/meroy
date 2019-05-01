@@ -13,18 +13,18 @@ class SlidersSeeder extends Seeder
     {
         DB::table('sliders')->insert([
             [
-            	'title' => 'Распродажа',
-            	'path' => '/',
-            	'image' => 'https://via.placeholder.com/800x501'
+            	'title' => 'Отделочные материалы со скидкой до 25%',
+            	'path' => '/category/4',
+            	'image' => '1.jpg'
             ],[
-                'title' => 'SALE',
-                'path' => '/',
-                'image' => 'https://via.placeholder.com/800x502'
+                'title' => 'Выгодный weekend!',
+                'path' => '/category/1',
+                'image' => '2.jpg'
             ],
             [
-              'title' => 'Скидка 15% на ВСЕ смеси',
-              'path' => '/',
-              'image' => 'https://via.placeholder.com/800x503'
+                'title' => 'Скидка на кирпичи!',
+                'path' => '/product/4',
+                'image' => '3.jpg'
             ]
         ]);
     }

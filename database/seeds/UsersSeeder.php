@@ -17,6 +17,7 @@ class UsersSeeder extends Seeder
     			'surname' => 'Иванов',
     			'name' => 'Иван',
     			'patronymic' => 'Иванович',
+    			//'api_token' => \Illuminate\Support\Str::random(60),
                 'role' => \App\Enums\UserRole::getKey(1),
     			'email' => 'User1@mail.ru',
     			'password' => '$2y$10$48IWObWVOFcps.J0uYLL6OqqfLulgR4p9k4gVlSsr1fOlSsMpwoWO'
@@ -25,6 +26,7 @@ class UsersSeeder extends Seeder
                 'surname' => 'Петров',
                 'name' => 'Петр',
                 'patronymic' => 'Иванович',
+                //'api_token' => \Illuminate\Support\Str::random(60),
                 'role' => \App\Enums\UserRole::getKey(1),
     			'email' => 'User2@mail.ru',
     			'password' => '$2y$10$48IWObWVOFcps.J0uYLL6OqqfLulgR4p9k4gVlSsr1fOlSsMpwoWO'
@@ -33,6 +35,7 @@ class UsersSeeder extends Seeder
                 'surname' => 'Грозный',
                 'name' => 'Иван',
                 'patronymic' => 'Михайлович',
+                //'api_token' => \Illuminate\Support\Str::random(60),
                 'role' => \App\Enums\UserRole::getKey(2),
                 'email' => 'User3@mail.ru',
                 'password' => '$2y$10$48IWObWVOFcps.J0uYLL6OqqfLulgR4p9k4gVlSsr1fOlSsMpwoWO'

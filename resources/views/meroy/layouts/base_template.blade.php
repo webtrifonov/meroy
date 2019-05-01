@@ -4,7 +4,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="{{ asset('assets/libs/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" media="all"/>
-    <link href="{{ asset('assets/css/flexslider.css')}}" rel="stylesheet" type="text/css" media="all"/>
     <link href="{{ asset('assets/css/style1.css')}}" rel="stylesheet" type="text/css" media="all"/>
 </head>
 <body>
@@ -24,7 +23,7 @@
     @yield('footer')
 </div>
 <script src="{{ asset('assets/js/cart_items.js') }}"></script>
-<script src="{{ asset('assets/js/cart.js') }}"></script>
+@yield('script')
 </body>
 </html>
 

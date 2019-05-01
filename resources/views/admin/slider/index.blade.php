@@ -8,15 +8,11 @@
         </div>
         <div class="col-md-9">
             <div class="card">
-                <div class="card-header"><h3>Просмотреть слайд</h3></div>
+                <div class="card-header"><h3>Информация о слайдах</h3></div>
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-                    
                     @forelse($sliders as $slide)
+                        <h4>Идентификатор</h4>
+                        <p>{{ $slide->id }}</p>
                         <h4>Название</h4>
                         <p>{{ $slide->title }}</p>
                         <h4>Описание</h4>
@@ -25,9 +21,14 @@
                         <p>{{ $slide->image }}</p>
                         <hr>
                     @empty
-                        <h4>Слайдов нет</h4>
+                        <h4 class="empty">Слайдов нет</h4>
                     @endforelse
                 </div>
+                @if($sliders->total() > $sliders->count())
+                    <div class="row justify-content-center">
+                        {{ $sliders->links() }}
+                    </div>
+                @endif
             </div>
         </div>
     </div>

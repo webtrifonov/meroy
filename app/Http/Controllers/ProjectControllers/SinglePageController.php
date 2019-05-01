@@ -3,31 +3,32 @@
 namespace App\Http\Controllers\ProjectControllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use DB;
 use App\Models\Contact;
 use App\Http\Requests\ContactRequest;
+use Illuminate\Support\Facades\Validator;
 
 class SinglePageController extends SiteController
 {
     public function showAbout()
     {
-    	return view('about');
+    	return view(env('THEME').'.about');
     }
     public function showDelivery()
     {
         $delivery_points = DB::table('delivery_points')->get();
-        return view('delivery', compact('delivery_points'));
+        return view(env('THEME').'.delivery', compact('delivery_points'));
     }
     public function showContacts()
     {
-        return view('contacts');
+        return view(env('THEME').'.contacts');
     }
-    public function postContacts(ContactRequest $request)
+    public function sendMessage(ContactRequest $request)
     {
         //$validated = $request->validated();
         //dump($validated);
-        //$errors = $
+        //$errors = ...
+        //dd($validator);
         Contact::create([
             'name' => $request->name,
             'email' => $request->email,

@@ -28,11 +28,10 @@ class Product extends Model
    }
    public static function withMiniDescription($id)
    {
-
       $product = Product::with('category')->find($id);
       $product->watched += 1;
       $product->save();
-      $product->mini_description = (strlen($product->description) > 100)? substr($product->description, 0, 300).'...' : $product->description;
+      $product->mini_description = (strlen($product->description) > 100)? substr($product->description, 0, 250).'...' : $product->description;
       return $product;
    }
 

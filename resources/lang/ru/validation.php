@@ -128,10 +128,13 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
+        /*'attribute-name' => [
             'rule-name' => 'custom-message',
-        ],
-        'required' => 'Поле :attribute обязательно к заполнению'
+        ],*/
+        /*'name' => [
+            'required' => ':attribute обязательно к заполнению'
+        ]*/
+
     ],
 
     /*

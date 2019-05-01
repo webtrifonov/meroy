@@ -17,9 +17,8 @@
         <div class="footer_info">
             <h4>Мой аккаунт</h4>
             <ul>
-                <li><a href="#">Вход</a></li>
-                <li><a href="index.html">Регистрация</a></li>
-                <li><a href="#">Мой аккаунт</a></li>
+                <li><a href="{{ route('customer.login') }}">Вход/Регистрация</a></li>
+                <li><a href="{{ route('customer.account') }}">Мой аккаунт</a></li>
                 <li><a href="{{ route('cart') }}">Корзина</a></li>
             </ul>
         </div>

@@ -21,8 +21,8 @@ class ProductController extends Controller
         $categories = Category::all();
         $demo_popular_products = Product::demoPopularProducts();
         $product = Product::withMiniDescription($id);
-        $products = Product::select('title')->paginate();
-        return view('product', compact('categories', 'product', 'demo_popular_products'));
+        //$products = Product::select('title')->paginate();
+        return view(env('THEME').'.product', compact('categories', 'product', 'demo_popular_products'));
     }
 
     public function search(SearchRequest $request)

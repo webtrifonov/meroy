@@ -14,7 +14,8 @@
             <h2>Результаты поиска по: {{ $search }}</h2>
         </div>
     </div>
-    <div class="demo_products row">
+    @include('meroy.includes.products_3')
+    {{--<div class="demo_products row">
         @forelse($products as $product)
             <div class="col-12 col-sm-6 col-md-6 col-lg-4">
                 <div class="product">
@@ -31,11 +32,11 @@
                         </div>
                     </div>
                 </div> 
-            </div>    
+            </div>
         @empty
             <div class="empty col-12">Для заданной категории нет товаров</div>
         @endforelse
-    </div>
+    </div>--}}
 </div>
 @endsection
 @section('footer')

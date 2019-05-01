@@ -16,9 +16,9 @@ class CreateCartProductsTable extends Migration
         Schema::create('cart_products', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->string('session_token', 60)->nullable();
-            $table->integer('user_id')->unsigned()->nullable();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            //$table->string('session_token', 60)->nullable();
+            //$table->integer('user_id')->unsigned()->nullable();
+            //$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('order_id')->unsigned()->nullable();
             $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('product_id')->unsigned();

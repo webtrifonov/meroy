@@ -17,6 +17,8 @@ use Illuminate\Http\Request;
 //    return $request->user();
 //});
 Route::group(['prefix' => 'v0', 'namespace' => 'V0'], function() {
-    Route::post('/cart/items/{item}', ['uses' => 'CustomerController@addProductToCart']);
+    //Route::post('/cart/items/{item}', ['uses' => 'CustomerController@addProductToCart']);
+
     //Route::delete('/cart/item/{item}', ['uses' => 'CustomerController@deleteProductFromCart']);
+    Route::get('/checkout', ['uses' => 'CustomerController@checkout']);
 });

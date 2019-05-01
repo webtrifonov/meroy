@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Customer;
 
 use App\Models\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -57,14 +58,28 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        $attributes = [
+            'login' => 'Логин',
+            'surname' => 'Фамилия',
+            'name' => 'Имя',
+            'patronymic' => 'Отчество',
+            'email' => 'E-mail',
+            'password' => 'Пароль',
+        ];
+        $messages = [
+            'required' => 'Заполните поле :attribute',
+            'unique' => ':attribute должен быть уникальным',
+            'min' => 'Минимальное значение :attribute - :min',
+            'max' => 'Максимальное значение :attribute - :max',
+        ];
         return Validator::make($data, [
-            'login' => ['required', 'string', 'max:255', 'unique:users'],
+            'login' => ['required', 'string', 'max:255', 'unique:users,login'],
             'surname' => ['required', 'string', 'max:255'],
-            'name' => ['required', 'string', 'max:255'],
-            'patronymic' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'name' => ['max:255'],
+            'patronymic' => ['max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
-        ]);
+        ], $messages, $attributes);
     }
 
     /**
@@ -84,4 +99,8 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
+//    protected function guard()
+//    {
+//        return Auth::guard('customer');
+//    }
 }

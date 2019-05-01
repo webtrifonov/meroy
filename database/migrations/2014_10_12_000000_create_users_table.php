@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('patronymic');
             $table->enum('role', UserRole::getKeys())->default(UserRole::getKey(1));
+            //$table->string('api_token', 60)->unique();
             $table->string('login')->unique();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();

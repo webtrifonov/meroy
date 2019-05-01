@@ -17,8 +17,17 @@ class RedirectIfAuthenticated
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        if (Auth::guard($guard)->check()) {
-            return redirect('/login');
+        switch ($guard) {
+            case 'customer':
+                if (Auth::guard($guard)->check()) {
+                    return redirect()->route('customer.account');
+                }
+                break;
+            default:
+                if (Auth::guard($guard)->check()) {
+                    return redirect()->route('admin.index');
+                }
+                break;
         }
         return $next($request);
     }

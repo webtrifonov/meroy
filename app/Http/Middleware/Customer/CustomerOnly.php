@@ -3,6 +3,7 @@
 namespace App\Http\Middleware\Customer;
 
 use Closure;
+use App\Enums\UserRole;
 
 class CustomerOnly
 {
@@ -15,6 +16,10 @@ class CustomerOnly
      */
     public function handle($request, Closure $next)
     {
+        dd($request->user->role);
+        if ($request->user->role === UserRole::getKey(1)) {
+            return redirect()->route('customer.login');
+        }
         return $next($request);
     }
 }

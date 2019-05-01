@@ -24,27 +24,32 @@ class ContactRequest extends FormRequest
     public function rules()
     {
         return [
-            //'parent_id' => 'required|integer|exists:blog_categories,id'
-            'name' => 'sometimes|required',
-            'email' => 'sometimes|required|email',
-            'theme' => 'sometimes|required',
-            'message' => 'sometimes|required|max:10000'
+            //'parent_id' => 'sometimes|required|integer|exists:blog_categories,id'
+            'name' => 'required|min:2',
+            'email' => 'required|email',
+            'theme' => 'required',
+            'message' => 'required|max:10000'
         ];
     }
     public function messages()
     {
         return [
-            'required.name' => ':attribute обязательно к заполнению',
-            'required.email' => ':attribute обязательно к заполнению',
-            'required.theme' => ':attribute обязательно к заполнению',
-            'required.message' => ':attribute обязательно к заполнению',
-            'max.message' => 'Превышено максимальное количество символов',
+            'name.required' => 'Заполните поле :attribute',
+            'name.min' => 'Не существует имен менее :min букв',
+            'email.required' => 'Заполните поле :attribute',
+            'email.email' => 'Не корректный e-mail',
+            'theme.required' => 'Заполните поле :attribute',
+            'message.required' => 'Заполните поле :attribute',
+            'message.max' => 'Превышено максимальное количество символов',
         ];
     }
     public function attributes()
     {
         return [
-            'email' => 'email address',
+            'name' => 'Имя',
+            'email' => 'E-mail',
+            'theme' => 'Тема',
+            'message' => 'Сообщение',
         ];
     }
 }

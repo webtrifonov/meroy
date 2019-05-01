@@ -15,7 +15,7 @@ class SliderController extends Controller
      */
     public function index()
     {
-        $sliders = Slider::all();
+        $sliders = Slider::orderBy('updated_at', 'created_at', 'DESC')->paginate(15);
         return view('admin.slider.index', compact('sliders'));
     }
 
@@ -39,11 +39,16 @@ class SliderController extends Controller
     {
         $formInput = $request->except('image');
         //validation
+        $messages = [
+            'title.max' => 'Наименование не более 200 символов',
+            'image.required' => 'Изображение не корректно',
+            'path.required' => 'Неправильный путь',
+        ];
         $this->validate($request, [
-           'title' => 'required',
-           'image' => 'image|mimes:png,jpg,jpeg|max:10000',
-           'path' => 'required|unique'
-        ]);
+           'title' => 'max:200',
+           'image' => 'required|image|mimes:png,jpg,jpeg|max:1000',
+           'path' => 'required|unique:sliders'
+        ], $messages);
         //image upload
         $image = $request->image;
         if($image){
@@ -88,15 +93,19 @@ class SliderController extends Controller
     {
         //
     }
-
+    public function delete()
+    {
+        return view('admin.slider.delete');
+    }
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function destroy($id)
     {
-        //
+        //return view('admin.slider.create');
     }
 }

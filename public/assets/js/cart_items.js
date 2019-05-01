@@ -61,8 +61,8 @@ function addToCart(item) {
 let deleteFromCart = function(item) {
     let productItem = item.parentNode.parentNode.parentNode;
     let currentProduct = JSON.parse(productItem.dataset.product);
-    let lsProducts = JSON.parse(localStorage.getItem('products'));
-    if (lsProducts) {
+    let lsProducts = JSON.parse(localStorage.getItem('MlCartItems'));
+    if (lsProducts.length) {
         lsProducts.forEach((product) => {
             if (product.id == currentProduct.id) {
                 if (lsProducts.indexOf(product) != -1) {
@@ -84,7 +84,7 @@ let changeDeleteFromCartButton = function(product) {
 function checkProductInCart(product) {
     let lsProducts = JSON.parse(localStorage.getItem('MlCartItems'));
     let prodObj = JSON.parse(product.dataset.product);
-    if(lsProducts) {
+    if(lsProducts.length) {
         for (let i=0; i<lsProducts.length; i++) {
             if (lsProducts[i].id == prodObj.id) {
                 return true;
@@ -94,7 +94,7 @@ function checkProductInCart(product) {
     return false;
 }
 function changeCartButtons() {
-    let products = document.querySelectorAll('.product');
+    let products = document.querySelectorAll('.product_item');
     products.forEach((product) => {
         if (checkProductInCart(product)) {
             changeAddToCartButton(product);
@@ -103,21 +103,23 @@ function changeCartButtons() {
         }
     });
 }
-let changeAmount = function() {
-    let amount = this.parentNode.parentNode.querySelector('.amount_number');
-    if (this.classList.contains('qty_up_arrow')) {
+function changeAmount(item) {
+    let amount = item.parentNode.parentNode.querySelector('.amount_number');
+
+    if (item.classList.contains('qty_up_arrow')) {
         amount.value = +amount.value + 1;
-    } else if (this.classList.contains('qty_down_arrow')) {
+    } else if (item.classList.contains('qty_down_arrow')) {
         if(amount.value > 1) {
             amount.value = +amount.value - 1;
         }
     }
-
 }
 /*** Event Listeners ***/
 let amountArrows = document.querySelectorAll('.qty_up_arrow, .qty_down_arrow');
 amountArrows.forEach((item) => {
-    item.addEventListener('click', changeAmount);
+    item.addEventListener('click', () => {
+        changeAmount(item);
+    });
 });
 let addToCartButton = document.querySelectorAll('.add_to_cart_button');
 addToCartButton.forEach((item) => {
@@ -130,11 +132,13 @@ addToCartButton.forEach((item) => {
 let deleteFromCartButton = document.querySelectorAll('.delete_from_cart_button');
 deleteFromCartButton.forEach((item) => {
     item.addEventListener('click', () => {
-        deleteFromCart(item)
+        deleteFromCart(item);
         changeCartButtons();
         setCartCount();
     });
 });
 /*** Initial ls load ***/
-changeCartButtons();
 setCartCount();
+changeCartButtons();
+
+

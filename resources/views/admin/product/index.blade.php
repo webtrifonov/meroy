@@ -17,7 +17,9 @@
                     @endif
                     
                     @forelse($products as $product)
-                        <h4>Название</h4>
+                        <h4>Идентификатор</h4>
+                        <p>{{ $product->id }}</p>
+                            <h4>Название</h4>
                         <p>{{ $product->title }}</p>
                         <h4>Описание</h4>
                         <p>{{ $product->description }}</p>

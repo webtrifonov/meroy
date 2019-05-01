@@ -14,9 +14,7 @@
             <h2>Популярные товары</h2>
         </div>
     </div>
-
     @include('meroy.includes.products_3')
-    
 </div>
 @endsection
 @section('footer')

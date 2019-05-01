@@ -17,6 +17,8 @@
                     @endif
                     
                     @forelse($categories as $category)
+                        <h4>Идентификатор</h4>
+                        <p>{{ $category->id }}</p>
                         <h4>Название</h4>
                         <p>{{ $category->title }}</p>
                         <h4>Псевдоним</h4>

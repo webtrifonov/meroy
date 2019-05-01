@@ -16,7 +16,7 @@
                     "price": "{{ $product->price }}",
                     "currency": "{{ $product->currency->title }}",
                     "amount": "1"
-                }' class="product">
+                }' class="product product_item">
                     <a href="{{ url('product', $product->id) }}">
                         <img src="{{ $product->images[0] }}" alt="" />
                         <h2>{{ $product->title }}</h2>

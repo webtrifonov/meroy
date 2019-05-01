@@ -18,7 +18,7 @@ class CreateOrdersTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
-            $table->enum('status', OrderStatus::getKeys());
+            $table->enum('status', OrderStatus::getKeys())->default(OrderStatus::getKey(1));
             $table->string('address')->nullable();
             $table->float('total_price', 8, 2);
             $table->timestamps();

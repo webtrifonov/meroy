@@ -24,12 +24,14 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
+
     /**
-     * Where to redirect users after login.
-     *
-     * @var string
+     * @return string
      */
-    protected $redirectTo = '/personal';
+    public function redirectTo()
+    {
+        return route('customer.account');
+    }
 
     public function username()
     {
