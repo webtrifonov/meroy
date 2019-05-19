@@ -37,7 +37,7 @@
         <h2 class="header_text">{{ $product->title }}</h2>
         <p>{{ $product->mini_description }}</p>
         <div class="price">
-            <p>Стоимость: <span>{{ $product->price }}{{ $product->currency->title }}</span></p>
+            <p>Стоимость: <span>{{ $product->price }} {{ $product->currency->title }}</span></p>
         </div>
         <div class="row">
             <div class="col-12 col-lg-auto">

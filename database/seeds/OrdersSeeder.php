@@ -17,22 +17,30 @@ class OrdersSeeder extends Seeder
                 'user_id' => 1,
                 'status' => OrderStatus::getKey(1),
                 'address' => 'ул. Садовая 55',
-                'total_price' => 1500
+                'total_price' => 1500,
+                'created_at' => \Carbon\Carbon::now(),
+                'updated_at' => \Carbon\Carbon::now(),
             ],[
                 'user_id' => 2,
                 'status' => OrderStatus::getKey(2),
                 'address' => 'ул. Дефолтная 1',
-                'total_price' => 2000
+                'total_price' => 2000,
+                'created_at' => \Carbon\Carbon::now(),
+                'updated_at' => \Carbon\Carbon::now()
             ],[
                 'user_id' => 3,
                 'status' => OrderStatus::getKey(0),
                 'address' => null,
-                'total_price' => 3000
+                'total_price' => 3000,
+                'created_at' => \Carbon\Carbon::now(),
+                'updated_at' => \Carbon\Carbon::now()
             ],[
                 'user_id' => 2,
                 'status' => OrderStatus::getKey(4),
                 'address' => null,
-                'total_price' => 800
+                'total_price' => 800,
+                'created_at' => \Carbon\Carbon::now(),
+                'updated_at' => \Carbon\Carbon::now()
             ],
 
         ]);

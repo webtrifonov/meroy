@@ -1,8 +1,9 @@
 <!DOCTYPE HTML>
 <head>
-    <title>{{ config('app.name', 'Laravel') }} | @yield('title') </title>
+    <title>@yield('title') | {{ config('app.name', 'Laravel') }}</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="{{ asset('assets/images/icons/favicon.png')}}" type="image/png">
     <link href="{{ asset('assets/libs/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" media="all"/>
     <link href="{{ asset('assets/css/flexslider.css')}}" rel="stylesheet" type="text/css" media="all"/>
     <link href="{{ asset('assets/css/style1.css')}}" rel="stylesheet" type="text/css" media="all"/>
@@ -33,7 +34,7 @@
 </div>
     @yield('footer')
 </div>  
-<script src="{{ asset('assets/js/jquery-1.7.2.min.js')}}"></script> 
+<script src="{{ asset('assets/js/jquery-1.7.2.min.js')}}"></script>
 <script src="{{ asset('assets/js/jquery.flexslider-min.js') }}"></script>
 <script>
 $(window).load(function() {

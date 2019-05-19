@@ -1,5 +1,5 @@
 @extends('meroy.layouts.index_template')
-@section('title', 'maji')
+@section('title', 'Главная')
 
 @section('header')
     @include('meroy.includes.header')

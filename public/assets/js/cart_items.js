@@ -84,7 +84,7 @@ let changeDeleteFromCartButton = function(product) {
 function checkProductInCart(product) {
     let lsProducts = JSON.parse(localStorage.getItem('MlCartItems'));
     let prodObj = JSON.parse(product.dataset.product);
-    if(lsProducts.length) {
+    if(lsProducts && lsProducts.length) {
         for (let i=0; i<lsProducts.length; i++) {
             if (lsProducts[i].id == prodObj.id) {
                 return true;

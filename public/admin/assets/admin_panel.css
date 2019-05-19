@@ -26,7 +26,6 @@
 	display: block;
 	width: 100%;
 	height: 100%;
-	
 	padding: 3px 8px;
 }
 .admin_panel_menu ul a{
@@ -36,4 +35,38 @@
 .admin_panel_menu ul a:hover{
 	
 	text-decoration: none;
+}
+.mb15 {
+	margin-bottom: 15px;
+}
+.cart_items_table {
+	width: 100%;
+	border: 1px solid #aaa;
+	font-size: 14px;
+}
+.cart_items_table > thead {
+	color: var(--black);
+	background: #ddd;
+	border-bottom: 1px solid #aaa;
+}
+.cart_items_table tr:nth-child(odd) {
+	border-top: none;
+}
+.cart_items_table {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	border-collapse: collapse;
+	color: #686461;
+}
+.cart_items_table td {
+	padding: 3px 8px;
+}
+.cart_items_table tr:nth-child(even) {
+	background: #EFFFEF;
+}
+.delete_cart_item {
+	display: block;
+	width: 16px;
+	height: 16px;
+	background-image: url('../../assets/images/icons/delete.png');
+    background-size: contain;
 }

@@ -11,14 +11,14 @@
                 <div class="card-header"><h3>Информация о слайдах</h3></div>
                 <div class="card-body">
                     @forelse($sliders as $slide)
-                        <h4>Идентификатор</h4>
-                        <p>{{ $slide->id }}</p>
-                        <h4>Название</h4>
-                        <p>{{ $slide->title }}</p>
-                        <h4>Описание</h4>
-                        <p>{{ $slide->description }}</p>
-                        <h4>Путь к изображению</h4>
-                        <p>{{ $slide->image }}</p>
+                        <a href="{{ route('slide.show', $slide->id) }}">{{ $slide->id }} {{ $slide->title }}</a>
+                        {{--<p>{{ $slide->id }}</p>--}}
+                        {{--<h4>Название</h4>--}}
+                        {{--<p>{{ $slide->title }}</p>--}}
+                        {{--<h4>Описание</h4>--}}
+                        {{--<p>{{ $slide->description }}</p>--}}
+                        {{--<h4>Путь к изображению</h4>--}}
+                        {{--<p>{{ $slide->image }}</p>--}}
                         <hr>
                     @empty
                         <h4 class="empty">Слайдов нет</h4>

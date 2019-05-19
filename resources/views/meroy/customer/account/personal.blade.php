@@ -1,5 +1,5 @@
 @extends('meroy.layouts.account_template')
-@section('title', 'Главная')
+@section('title', 'Мой Профиль')
 
 @section('header')
     @include('meroy.includes.header')

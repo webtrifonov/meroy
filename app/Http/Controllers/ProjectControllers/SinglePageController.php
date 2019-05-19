@@ -35,6 +35,6 @@ class SinglePageController extends SiteController
             'theme' => $request->theme,
             'message' => $request->message
         ]);
-        return back();
+        return back()->with(['success' => 'Сообщение успешно отправлено']);
     }
 }

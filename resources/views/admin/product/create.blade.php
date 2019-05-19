@@ -15,66 +15,78 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    {!! Form::open(['route' => 'product.store', 'method' => 'post', 'files' => true]) !!}
+                    <form action="{{ route('product.store') }}" method="POST">
+                        @csrf
                         <div class="form-group">
-                            {{ Form::label('title', 'Наименование') }}
-                            {{ Form::text('title', null, ['class' => 'form-control']) }}
+                            <label for="title">Наименование</label>
+                            <input name="title" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Описание</label>
+                            <textarea name="description" type="text" class="form-control"></textarea>
                         </div>
 
-                        <div class="form-group">
-                            {{ Form::label('description', 'Описание') }}
-                            {{ Form::text('description', null, ['class' => 'form-control']) }}
+                        <div class="row" data-additional>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="images">Изображения</label>
+                                    <input name="images[]" type="text" class="form-control mb15">
+                                </div>
+                            </div>
+                            <div class="col-12 text-center">
+                                <button class="btn btn-secondary" data-add_images_field type="button" >+</button>
+                            </div>
                         </div>
-
                         <div class="form-group">
-                            {{ Form::label('images', 'Изображения') }}
-                            {{ Form::file('images', ['class' => 'form-control']) }}
+                            <label for="category_id">Категория</label>
+                            <select name="category_id" class="form-control">
+                                @foreach ($categories as $category)
+                                    <option value="{{ $category->id }}">{{ $category->title }}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="row">
                             <div class="col-6">
                                 <div class="form-group">
-                                    {{ Form::label('price', 'Стоимость') }}
-                                    {{ Form::text('price', null, ['class' => 'form-control']) }}
+                                    <label for="price">Стоимость</label>
+                                    <input name="price" type="text" class="form-control">
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="form-group">
-                                    {{ Form::label('currency_id', 'Валюта') }}
-                                    {{ Form::select('currency_id', $currencies, null, ['class' => 'form-control']) }}
+                                    <label for="currency_id">Валюта</label>
+                                    <select name="currency_id" class="form-control">
+                                        @foreach ($currencies as $currency)
+                                            <option value="{{ $currency->id }}">{{ $currency->title }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
+
                         </div>
-                        Характеристики:
-                        <hr>
-                        <div class="row">
+
+                        <p>Характеристики</p>
+                        <div class="row" data-additional>
                             <div class="col-6">
                                 <div class="form-group">
-                                    {{ Form::label('property_set', 'Свойства') }}
-                                    {{ Form::text('property_set', null, ['class' => 'form-control']) }}
+                                    <label for="property_set">Свойства</label>
+                                    <input name="property_set[]" type="text" class="form-control mb15">
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="form-group">
-                                    {{ Form::label('value_set', 'Значения') }}
-                                    {{ Form::text('value_set', null, ['class' => 'form-control']) }}
+                                    <label for="value_set">Значения</label>
+                                    <input name="value_set[]" type="text" class="form-control mb15">
                                 </div>
                             </div>
-                            <button class="text-center">+</button>
-                        </div> 
-                        
-                        
-                        
-                        <div class="form-group">
-                            {{ Form::label('category_id', 'Категория') }}
-                            {{ Form::select('category_id', $categories, null, ['class' => 'form-control']) }}
+                            <div class="col-12 text-center">
+                                <button class="btn btn-secondary" type="button" data-add_properties_fields>+</button>
+                            </div>
                         </div>
-                         <div class="form-group">
-                            {{ Form::label('alias', 'Псевдоним') }}
-                            {{ Form::text('alias', null, ['class' => 'form-control']) }}
-                        </div>
-                       {{ Form::submit('Добавить', ['class' => 'btn btn-default']) }} 
-                    {!! Form::close() !!}
+
+                        {{--alias--}}
+                        <input type="submit" class="btn btn-primary">
+                    </form>
                 </div>
             </div>
         </div>

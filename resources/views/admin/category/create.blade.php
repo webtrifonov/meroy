@@ -23,10 +23,10 @@
                             {{ Form::text('title', null, ['class' => 'form-control']) }}
                         </div>
 
-                        <div class="form-group">
-                            {{ Form::label('alias', 'Псевдоним категории') }}
-                            {{ Form::text('alias', null, ['class' => 'form-control']) }}
-                        </div>
+                        {{--<div class="form-group">--}}
+                            {{--{{ Form::label('alias', 'Псевдоним категории') }}--}}
+                            {{--{{ Form::text('alias', null, ['class' => 'form-control']) }}--}}
+                        {{--</div>--}}
                        {{ Form::submit('Добавить', ['class' => 'btn btn-primary']) }} 
                     {!! Form::close() !!}
                 </div>

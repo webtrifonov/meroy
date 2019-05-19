@@ -31,6 +31,11 @@ class RegisterController extends Controller
      */
     protected $redirectTo = '/personal';
 
+    public function redirectTo()
+    {
+        return route('customer.account');
+    }
+
     /**
      * Show the application registration form.
      *
@@ -96,11 +101,13 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'patronymic' => $data['patronymic'],
             'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            //'password' => Hash::make($data['password']),
+            'password' => $data['password'],
         ]);
     }
-//    protected function guard()
-//    {
-//        return Auth::guard('customer');
-//    }
+    protected function guard()
+    {
+        return Auth::guard('customer');
+        //return Auth::guard();
+    }
 }

@@ -23,44 +23,32 @@
                                 <td><b>#</b></td>
                                 <td><b>Артикул</b></td>
                                 <td><b>Покупатель</b></td>
-                                <td><b>Адрес доставки</b></td>
                                 <td><b>Статус</b></td>
-                                <td><b>Общая стоимость</b></td>
-                                <td><b>Дата создания</b></td>
-                                <td><b>Дата обновления</b></td>
-                                <td><b>Товары</b></td>
+                                <td><b></b></td>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach ($orders as $k => $order)
-                                <tr>
-                                    <td>{{ $k+1 }}</td>
-                                    <td>{{ $order->id }}</td>
-                                    <td>{{ $order->user->surname }} {{ $order->user->name }}</td>
-                                    <td>
-                                        @if ($order->address)
-                                            {{ $order->address }}
-                                        @else
-                                            <p>Нет адреса</p>
-                                        @endif
-                                    </td>
+                            @foreach ($orders as $key => $order)
+                                <tr class="order_item_line">
+                                    <td>{{ $key + 1 }}</td>
+                                    <td>№{{ $order->id }}</td>
+                                    <td>{{ $order->user->surname.' '.$order->user->name.' '.$order->user->patronymic }}</td>
                                     <td>
                                         @if ($order->status === 'Cancelled')
-                                            Отменен
+                                            <p class="cancelled">Отменен</p>
                                         @elseif ($order->status === 'Placed')
-                                            Размещен
+                                            <p class="placed">В обработке</p>
                                         @elseif ($order->status === 'Approved')
-                                            Утвержден
+                                            <p class="approved">Одобрен</p>
                                         @elseif ($order->status === 'Shipped')
-                                            Отправлен
+                                            <p class="shipped">Отправлен</p>
                                         @elseif ($order->status === 'Received')
-                                            Доставлен
+                                            <p class="received">Доставлен</p>
                                         @endif
                                     </td>
-                                    <td>{{ $order->total_price }}</td>
-                                    <td>{{ $order->created_at }}</td>
-                                    <td>{{ $order->updated_at }}</td>
-                                    <td><a href="#" class="admin_all_products">Товары заказа</a></td>
+                                    <td>
+                                        <div class="more_order_details"><a href="{{ route('order.show', $order->id) }}" >Подробнее...</a></div>
+                                    </td>
                                 </tr>
                             @endforeach
                             </tbody>

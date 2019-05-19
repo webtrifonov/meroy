@@ -22,8 +22,8 @@ class CategoriesSeeder extends Seeder
             	'title' => 'Краски',
                 'alias' => 'kraski'
             ],[
-            	'title' => 'Кровельные материалы',
-                'alias' => 'krovelnye_materiali'
+            	'title' => 'Отделочные материалы',
+                'alias' => 'otdelochnye_materiali'
             ],[
             	'title' => 'Плитка',
                 'alias' => 'plitka'

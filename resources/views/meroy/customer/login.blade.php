@@ -1,5 +1,5 @@
 @extends('meroy.layouts.base_template')
-@section('title', 'Главная')
+@section('title', 'Авторизация')
 
 @section('header')
     @include('meroy.includes.header')
@@ -38,15 +38,15 @@
                         <input class="form_item-input" name="password" type="password" value="{{ old('password') }}"/>
                     </div>
                 </div>
-                <div class="form_item row">
-                    <div class="form_item-label_wrapper col-6">
-                        <input class="form_item-checkbox" name="remember" type="checkbox"/>
-                        <label class="form_item-label" for="remember">Запомнить меня</label>
-                    </div>
-                    <div class="form_item-label_wrapper col-6">
-                        <a href="#">Забыли пароль?</a>
-                    </div>
-                </div>
+                {{--<div class="form_item row">--}}
+                    {{--<div class="form_item-label_wrapper col-6">--}}
+                        {{--<input class="form_item-checkbox" name="remember" type="checkbox"/>--}}
+                        {{--<label class="form_item-label" for="remember">Запомнить меня</label>--}}
+                    {{--</div>--}}
+                    {{--<div class="form_item-label_wrapper col-6">--}}
+                        {{--<a href="#">Забыли пароль?</a>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
                 <input type="submit" class="button_submit button_big button_lightblue" value="Войти">
             </form>
         </div>
@@ -69,7 +69,7 @@
                         </label>
                     </div>
                     <div class="form_item-input_wrapper col-12">
-                        <input class="form_item-input" name="surname" type="text"/>
+                        <input class="form_item-input" name="surname" type="text" value="{{ old('surname') }}"/>
                     </div>
                 </div>
             <div class="form_item row">
@@ -80,7 +80,7 @@
                     </label>
                 </div>
                 <div class="form_item-input_wrapper col-12">
-                    <input class="form_item-input" name="name" type="text"/>
+                    <input class="form_item-input" name="name" type="text" value="{{ old('name') }}"/>
                 </div>
             </div>
             <div class="form_item row">
@@ -91,7 +91,7 @@
                     </label>
                 </div>
                 <div class="form_item-input_wrapper col-12">
-                    <input class="form_item-input" name="patronymic" type="text"/>
+                    <input class="form_item-input" name="patronymic" type="text" value="{{ old('patronymic') }}"/>
                 </div>
             </div>
             <div class="form_item row">
@@ -102,7 +102,7 @@
                     </label>
                 </div>
                 <div class="form_item-input_wrapper col-12">
-                    <input class="form_item-input" name="email" type="text"/>
+                    <input class="form_item-input" name="email" type="text" value="{{ old('email') }}"/>
                 </div>
             </div>
             <div class="form_item row">
@@ -113,7 +113,7 @@
                     </label>
                 </div>
                 <div class="form_item-input_wrapper col-12">
-                    <input class="form_item-input" name="login" type="text"/>
+                    <input class="form_item-input" name="login" type="text" value="{{ old('login') }}"/>
                 </div>
             </div>
             <div class="form_item row">
@@ -124,7 +124,7 @@
                     </label>
                 </div>
                 <div class="form_item-input_wrapper col-12">
-                    <input class="form_item-input" name="password" type="password"/>
+                    <input class="form_item-input" name="password" type="password" value="{{ old('password') }}"/>
                 </div>
             </div>
             <div class="form_item row">
@@ -135,7 +135,7 @@
                     </label>
                 </div>
                 <div class="form_item-input_wrapper col-12">
-                    <input class="form_item-input" name="password_confirmation" type="password"/>
+                    <input class="form_item-input" name="password_confirmation" type="password" value="{{ old('password') }}"/>
                 </div>
             </div>
                 <input type="submit" class="button_submit button_big button_fiolet" value="Зарегистрировать">

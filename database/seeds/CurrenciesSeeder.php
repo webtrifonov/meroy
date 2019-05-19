@@ -17,14 +17,12 @@ class CurrenciesSeeder extends Seeder
       	],[
       		'title' => 'руб/шт'
       	],[
-      		'title' => '$'
-      	],[
-      		'title' => '$/шт'
-      	],[
       		'title' => 'руб/кг'
       	],[
       		'title' => 'руб/л'
-      	]
+      	],[
+            'title' => 'руб/набор'
+        ]
       ]);
     }
 }

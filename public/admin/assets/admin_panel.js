@@ -21,6 +21,26 @@ window.addEventListener('load', () => {
 			}
 		});
 	});
-	//delete
-	let deleteSlide = document.querySelectorAll('.delete_slide')
+	//add fields on '+' button
+	function createAdditionalField(nameAttr) {
+		let newField = document.createElement('input');
+		newField.setAttribute('type', 'text');
+		newField.setAttribute('name', nameAttr);
+		newField.classList.add('form-control');
+		newField.classList.add('mb15');
+		return newField;
+    }
+	function listeners(e) {
+		if (e.target.hasAttribute('data-add_images_field')) {
+			let newImageField = createAdditionalField('images[]');
+			e.target.closest('*[data-additional]').querySelector('.form-group').appendChild(newImageField);
+		}
+        if (e.target.hasAttribute('data-add_properties_fields')) {
+            let currentFormGroup = e.target.closest('*[data-additional]').querySelectorAll('.form-group');
+            currentFormGroup[0].appendChild(createAdditionalField('property_set[]'));
+            currentFormGroup[1].appendChild(createAdditionalField('value_set[]'));
+        }
+    }
+	document.addEventListener('click', listeners);
+	
 });

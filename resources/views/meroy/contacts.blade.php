@@ -1,5 +1,5 @@
 @extends('meroy.layouts.base_template')
-@section('title', 'Главная')
+@section('title', 'Контакты')
 
 @section('header')
     @include('meroy.includes.header')
@@ -17,6 +17,11 @@
                             {{--</div>--}}
                         {{--@endforeach--}}
                     {{--@endif--}}
+                    @if (session('success'))
+                        <div class="success">
+                            <p class="success_message">{{ session('success') }}</p>
+                        </div>
+                    @endif
                     <form action="{{ route('contacts') }}" method="POST">
                         @csrf
                         <div class="form_item row">
@@ -28,7 +33,7 @@
 
                             </div>
                             <div class="form_item-input_wrapper col-12">
-                                <input class="form_item-input" name="name" type="text"/>
+                                <input class="form_item-input" name="name" type="text" value="{{ old('name') }}"/>
                                 @if($errors->get('name'))
                                     <div class="error error_inline">
                                         @foreach($errors->get('name') as $error)
@@ -47,7 +52,7 @@
                                 </label>
                             </div>
                             <div class="form_item-input_wrapper col-12">
-                                <input class="form_item-input" name="email" type="text"/>
+                                <input class="form_item-input" name="email" type="text" value="{{ old('email') }}"/>
                                 @if($errors->get('email'))
                                     <div class="error error_inline">
                                         @foreach($errors->get('email') as $error)
@@ -65,7 +70,7 @@
                                 </label>
                             </div>
                             <div class="form_item-input_wrapper col-12">
-                                <input class="form_item-input" name="theme" type="text"/>
+                                <input class="form_item-input" name="theme" type="text" value="{{ old('theme') }}"/>
                                 @if($errors->get('theme'))
                                     <div class="error error_inline">
                                         @foreach($errors->get('theme') as $error)
@@ -84,7 +89,7 @@
 
                             </div>
                             <div class="form_item-input_wrapper col-12">
-                                <textarea class="form_item-input" name="message"></textarea>
+                                <textarea class="form_item-input" name="message">{{ old('message') }}</textarea>
                                 @if($errors->get('message'))
                                     <div class="error error_inline ">
                                         @foreach($errors->get('message') as $error)

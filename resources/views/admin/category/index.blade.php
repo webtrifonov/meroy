@@ -8,7 +8,7 @@
         </div>
         <div class="col-md-9">
             <div class="card">
-                <div class="card-header"><h3>Просмотреть слайд</h3></div>
+                <div class="card-header"><h3>Просмотреть категории товаров</h3></div>
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
@@ -17,16 +17,16 @@
                     @endif
                     
                     @forelse($categories as $category)
-                        <h4>Идентификатор</h4>
-                        <p>{{ $category->id }}</p>
-                        <h4>Название</h4>
-                        <p>{{ $category->title }}</p>
-                        <h4>Псевдоним</h4>
-                        <p>{{ $category->alias }}</p>
-                        <hr>
+                         <a href="{{ route('category.show', $category->id) }}">{{ $category->id }} {{ $category->title }}</a>
+                         <hr>
                     @empty
-                        <h4>Слайдов нет</h4>
+                        <h4 class="empty">Категорий нет</h4>
                     @endforelse
+                        @if($categories->total() > $categories->count())
+                            <div class="row justify-content-center">
+                                {{ $categories->links() }}
+                            </div>
+                        @endif
                 </div>
             </div>
         </div>

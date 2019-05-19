@@ -208,6 +208,7 @@ textarea {
     text-transform: uppercase;
     margin: 0;
     padding-left: 20px;
+    color: #ffffff;
 }
 .side_menu h3 > a {
     font-family: CormorantUnicase;
@@ -562,6 +563,22 @@ ul.tabs li.current{
 .border_left {
     border-left: 1px solid #CCC;
 }
+.success {
+    display: block;
+    border-radius: 6px;
+    padding: 10px;
+    background-color: var(--green);
+    background-image: url('../images/icons/ok.png');
+    background-repeat: no-repeat;
+    background-position: 10px 50%;
+    margin: 15px 0;
+}
+.success_message, .error_message{
+    margin: 0;
+    padding: 0;
+    padding-left: 25px;
+    color: #fff;
+}
 .error {
     display: block;
     border-radius: 6px;
@@ -577,12 +594,6 @@ ul.tabs li.current{
     vertical-align: top;
     margin: 0;
     margin-bottom: 15px;
-}
-.error_message {
-    margin: 0;
-    padding: 0;
-    padding-left: 25px;
-    color: #fff;
 }
 .empty {
     margin: 15px;
@@ -668,7 +679,7 @@ ul.tabs li.current{
 }
 .cart_items_table > thead {
     color: var(--black);
-    background: #ddd;
+    background: var(--lightblue);
     border-bottom: 1px solid #aaa;
 }
 .cart_items_table tr:nth-child(odd) {
@@ -708,4 +719,26 @@ ul.tabs li.current{
     width: 32px;
     height: 32px;
     background-image: url('../images/icons/more_details.png');
+}
+.modal-header {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+.modal-body {
+    padding: 0 15px 0px 15px;
+    display: flex;
+    align-items: flex-start;
+}
+.modal-text {
+    margin: 15px;
+    flex: 1;
+}
+.modal_buttons {
+    border-top: 1px solid #ddd;
+    padding: 15px;
+    text-align: center;
+}
+.address_price {
+    font-size: 12px;
+    font-style: italic;
 }

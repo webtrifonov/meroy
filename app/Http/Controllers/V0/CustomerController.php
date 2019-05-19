@@ -7,68 +7,64 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Auth;
+
 class CustomerController extends Controller
 {
-    public function addProductToCart(Request $request, CartProduct $cartProduct)
+    public function deleteProductFromCart(CartProduct $cartProduct)
     {
-        CartProduct::create([
-            'user_id' => null,
-            'session_token' => null, //$request->get('session_token'),
-            'order_id' => null,
-            'product_id' => $item->id,
-            'amount' => $request->get('amount'),
-        ]);
-        return response()->json([
-            'success' => true,
-            'amount' => $request->amount
-        ]);
-    }
-
-    public function deleteProductFromCart(Request $request, CartProduct $cartProduct)
-    {
-        CartProduct::where(['product_id' => $item->id, 'user_id' => $request->user()->id])->delete();
+        //CartProduct::where(['product_id' => $item->id, 'user_id' => $request->user()->id])->delete();
+        $cartProduct->delete();
         return response()->json([
             'success' => true
         ]);
     }
-    public function calculateTotalPrice($product_ids) {
-        $products = Product::select('price')->whereIn('price', $product_ids)->get();
-
-        return 1;
+    public function calculateTotalPrice($products, $address) {
+        //$products->sum(function ($product) {
+        //    return $product->price * $product->amount;
+        //});
+        $totalPrice = 0;
+        foreach ($products as $product) {
+            $totalPrice += $product->price * $product->amount;
+        }
+        if ($address) {
+            $totalPrice += env('ADDRESS_PRICE');
+        }
+        return $totalPrice;
+    }
+    public function cartProductsData($products)
+    {
+        $cartProductsData = [];
+        foreach ($products as $k => $product) {
+            array_push($cartProductsData, [
+                'product_id' => $product->id,
+                'amount' => $product->amount
+            ]);
+        }
+        return $cartProductsData;
     }
     public function checkout(Request $request)
     {
-        //$products = Product::select('price')->whereIn('id', $request->get('product'))->get();
-        //dump($products);
-        //
-        $newOrder = Order::create([
+        $p = $request->get('products');
+        $a = $request->get('amounts');
+        $products = Product::select('id', 'price')->whereIn('id', $p)->get();
+        $products->each(function ($item) use ($p, $a){
+            return $item->amount = $a[array_search($item->id,$p)];
+        });
+        $order = $request->user()->orders()->create([
             'user_id' => $request->user()->id,
             'address' => $request->get('address'),
-            'total_price' => 100,
+            'total_price' => $this->calculateTotalPrice($products, $request->get('address'))
         ]);
-        $cartProductsData = [];
-        for ($i = 0; $i < count($request->get('product')); $i += 1) {
-            array_push($cartProductsData, [
-                'order_id' => $order->id,
-                'product_id' => $request->get('product')[$i],
-                'amount' => $request->get('amount')[$i],
-            ]);
-        }
-
-        //$newOrder->cartProducts()->saveMany([
-        //    new App\Models\CartProduct([
-        //        'order_id' => $order->id,
-        //        'product_id' => 1,
-        //        'amount' => 2,
-        //    ]),
-        //    new App\Models\CartProduct([
-        //        'order_id' => $order->id,
-        //        'product_id' => 2,
-        //        'amount' => 3,
-        //    ]),
-        //]);
+        $order->cartProducts()->createMany(
+            $this->cartProductsData($products)
+        );
         return response()->json([
-            'success' => true
+            'success' => true,
+            'data' => [
+                'order' => $order
+            ],
         ]);
     }
 }

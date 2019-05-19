@@ -20,7 +20,13 @@ class ProductController extends Controller
         $products = Product::all();
         return view('admin.product.index', compact('products'));
     }
-
+    public function show(Product $product)
+    {
+        $categories = Category::all();
+        $currencies = Currency::all();
+        $product->load(['category', 'currency'])->get();
+        return view('admin.product.form', compact('product', 'categories', 'currencies'));
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -28,8 +34,10 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $categories = Category::pluck('title', 'id');
-        $currencies = Currency::pluck('id', 'title');
+        //$categories = Category::pluck('title', 'id');
+        //$currencies = Currency::pluck('id', 'title');
+        $categories = Category::all();
+        $currencies = Currency::all();
         return view('admin.product.create', compact('categories', 'currencies'));
     }
 
@@ -41,8 +49,6 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $formInput = $request->all();
-        
         //validation
         //$this->validate($request, [
         //   'title' => 'required',
@@ -57,23 +63,9 @@ class ProductController extends Controller
         //    $image->move('assets\images\products', $imageName);
         //    $formInput['image'] = $imageName;
         //}
-        Product::create($formInput);
-        return redirect()->route('product.create');
+        Product::create($request->all());
+        return redirect()->route('product.index');
     }
-
-
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
     /**
      * Update the specified resource in storage.
      *
@@ -81,9 +73,10 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Product $product)
     {
-        //
+        $product->update($request->all());
+        return redirect()->route('product.index');
     }
 
     /**
@@ -92,8 +85,10 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Product $product)
     {
-        //
+        $product->delete();
+        //Slider::destroy($slide);
+        return redirect()->route('product.index');
     }
 }

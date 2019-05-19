@@ -66,9 +66,9 @@ class SliderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Slider $slide)
     {
-        //
+        return view('admin.slider.form', compact('slide'));
     }
 
     /**
@@ -89,9 +89,10 @@ class SliderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Slider $slide)
     {
-        //
+        $slide->update($request->only(['title', 'path', 'image']));
+        return redirect()->route('slide.index');
     }
     public function delete()
     {
@@ -104,8 +105,10 @@ class SliderController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function destroy($id)
+    public function destroy(Slider $slide)
     {
-        //return view('admin.slider.create');
+        $slide->delete();
+        //Slider::destroy($slide);
+        return redirect()->route('slide.index');
     }
 }

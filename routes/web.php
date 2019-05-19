@@ -42,17 +42,22 @@ Route::group(['namespace' => 'Customer'], function() {
 //    Route::post('password/reset', ['as' => 'customer.password.update', 'uses' => 'ResetPasswordController@reset']);
 //    Route::get('password/reset/{token}', ['as' => 'customer.reset', 'uses' => 'ResetPasswordController@showResetForm']);
 
-    Route::group(['middleware' => ['customer:customer']], function() {
+    Route::group(['middleware' => ['web', 'customer:customer']], function() {
         Route::post('cart/addOrder', ['as' => 'customer.addOrder', 'uses' => 'CustomerController@addOrder']);
         Route::get('/account', ['as' => 'customer.account', 'uses' => 'CustomerController@index']);
         Route::get('/account/personal', ['as' => 'customer.personal', 'uses' => 'CustomerController@personal']);
         Route::post('/account/personal', ['uses' => 'CustomerController@updatePersonal']);
+
+
     });
 
 });
-
+Route::post('/checkout', ['middleware' => ['customer:customer'], 'uses' => 'V0\CustomerController@checkout']);
 Route::get('/products', function(){
-    echo 'products';
+    session(['key' => ['a1', 'a2']]);
+    session()->push('key.wq', 'a3');
+    //session()->forget(0);
+    dump(session()->all());
 });
 
 //Route::get('category/{alias}', ['as' => 'category.alias', 'uses' => 'ProjectControllers\CategoryController@show']);
@@ -80,32 +85,44 @@ Route::group([
 	Route::get('/', ['as' => 'admin.index', 'uses' => 'AdminController@show']);
 
 	//Route::resource('slide', 'SliderController');
-    Route::group(['prefix' => 'slide'], function () {
+    Route::group(['prefix' => 'orders'], function () {
+        Route::get('/', ['as' => 'order.index', 'uses' => 'OrderController@index']);
+        Route::get('/order/{order}', ['as' => 'order.show', 'uses' => 'OrderController@show']);
+        Route::patch('/order/{order}', ['as' => 'order.update', 'uses' => 'OrderController@update']);
+    });
+    Route::group(['prefix' => 'slides'], function () {
         Route::get('/', ['as' => 'slide.index', 'uses' => 'SliderController@index']);
+        Route::get('/slide/{slide}', ['as' => 'slide.show', 'uses' => 'SliderController@show']);
+        Route::patch('/slide/{slide}', ['as' => 'slide.update', 'uses' => 'SliderController@update']);
         Route::get('/create', ['as' => 'slide.create', 'uses' => 'SliderController@create']);
         Route::post('/store', ['as' => 'slide.store', 'uses' => 'SliderController@store']);
-        Route::get('/delete', ['as' => 'slide.delete', 'uses' => 'SliderController@delete']);
-        Route::post('/destroy', ['as' => 'slide.destroy', 'uses' => 'SliderController@destroy']);
+        //Route::get('/delete', ['as' => 'slide.delete', 'uses' => 'SliderController@delete']);
+        Route::delete('/slide/{slide}', ['as' => 'slide.destroy', 'uses' => 'SliderController@destroy']);
     });
-    Route::group(['prefix' => 'category'], function () {
+    Route::group(['prefix' => 'categories'], function () {
         Route::get('/', ['as' => 'category.index', 'uses' => 'CategoryController@index']);
+        Route::get('/category/{category}', ['as' => 'category.show', 'uses' => 'CategoryController@show']);
+        Route::patch('/category/{category}', ['as' => 'category.update', 'uses' => 'CategoryController@update']);
         Route::get('/create', ['as' => 'category.create', 'uses' => 'CategoryController@create']);
         Route::post('/store', ['as' => 'category.store', 'uses' => 'CategoryController@store']);
         Route::get('/delete', ['as' => 'category.delete', 'uses' => 'CategoryController@delete']);
-        Route::post('/destroy', ['as' => 'category.destroy', 'uses' => 'CategoryController@destroy']);
+        Route::delete('/category/{category}', ['as' => 'category.destroy', 'uses' => 'CategoryController@destroy']);
     });
-    Route::group(['prefix' => 'product'], function () {
+    Route::group(['prefix' => 'products'], function () {
         Route::get('/', ['as' => 'product.index', 'uses' => 'ProductController@index']);
+        Route::get('/product/{product}', ['as' => 'product.show', 'uses' => 'ProductController@show']);
+        Route::patch('/product/{product}', ['as' => 'product.update', 'uses' => 'ProductController@update']);
         Route::get('/create', ['as' => 'product.create', 'uses' => 'ProductController@create']);
         Route::post('/store', ['as' => 'product.store', 'uses' => 'ProductController@store']);
         Route::get('/delete', ['as' => 'product.delete', 'uses' => 'ProductController@delete']);
-        Route::post('/destroy', ['as' => 'product.destroy', 'uses' => 'ProductController@destroy']);
+        Route::delete('/product/{product}', ['as' => 'product.destroy', 'uses' => 'ProductController@destroy']);
     });
 	//Route::resource('category', 'CategoryController');
 	Route::get('category/delete', ['as' => 'category.delete', 'uses' => 'CategoryController@delete']);
 	//Route::resource('product', 'ProductController');
 	Route::get('product/delete', ['as' => 'product.delete', 'uses' => 'ProductController@delete']);
-    Route::get('/orders', ['as' => 'admin.orders', 'uses' => 'OrderController@index']);
+
+
  	// Route::get('/{name}', function($n){
  		// echo $n;
 	// });

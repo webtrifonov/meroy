@@ -3,8 +3,9 @@
 namespace App\Enums;
 
 use BenSampo\Enum\Enum;
+use BenSampo\Enum\Contracts\LocalizedEnum;
 
-final class OrderStatus extends Enum
+final class OrderStatus extends Enum implements LocalizedEnum
 {
     const Cancelled = 0;
     const Placed = 1;
