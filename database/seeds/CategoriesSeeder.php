@@ -13,13 +13,16 @@ class CategoriesSeeder extends Seeder
     {
         \App\Models\Category::insert([
             [
+                'title' => 'Кирпич',
+                'alias' => 'kirpich'
+            ],[
                 'title' => 'Строительные смеси',
                 'alias' => 'smesi'
             ],[
-            	'title' => 'Сайдинг',
-                'alias' => 'saiding'
+                'title' => 'Бетонные изделия',
+                'alias' => 'betonnie_izdeliya'
             ],[
-            	'title' => 'Краски',
+            	'title' => 'Лакокрасочные материалы',
                 'alias' => 'kraski'
             ],[
             	'title' => 'Отделочные материалы',
@@ -28,14 +31,11 @@ class CategoriesSeeder extends Seeder
             	'title' => 'Плитка',
                 'alias' => 'plitka'
             ],[
-            	'title' => 'Напольные покрытия',
-                'alias' => 'napolnye_pokrytiya'
-            ],[
-                'title' => 'Бетонные изделия',
-                'alias' => 'betonnie_izdeliya'
-            ],[
                 'title' => 'Утеплители',
                 'alias' => 'yteplitely'
+            ],[
+                'title' => 'Крепеж',
+                'alias' => 'krepegh'
             ],[
                 'title' => 'Арматура',
                 'alias' => 'armatyra'

@@ -10,7 +10,7 @@ class Category extends Model
    protected $perPage = 3;
    public function products()
    {
-   	return $this->hasMany('App\Models\Product');
-   	//return $this->hasMany(Product::class);
+   	    return $this->hasMany('App\Models\Product');
+   	    //return $this->hasMany(Product::class);
    }
 }

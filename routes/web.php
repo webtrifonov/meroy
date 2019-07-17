@@ -53,11 +53,32 @@ Route::group(['namespace' => 'Customer'], function() {
 
 });
 Route::post('/checkout', ['middleware' => ['customer:customer'], 'uses' => 'V0\CustomerController@checkout']);
-Route::get('/products', function(){
+
+use App\Http\Requests\Test;
+use Illuminate\Http\Request;
+Route::get('/products', function(Test $request){
+    //$validator = Validator::make($request->all(),[
+    //    'name'=>'required'
+    //]);
+
+    //if($validator->fails()) {
+    //    return redirect()->route('about')->withErrors($validator)->withInput()->with(['sosi' => 'jopy']);
+    //}
+    //$validator = Validator::make($request->all(), [
+    //    'name' => 'required'
+    //]);
+    //dd($validator->fails());
+    //$request->validate([
+    //    'p' => 'min:2'
+    //]);
+    //$request->validated();
+    dump($request->all());
+
     session(['key' => ['a1', 'a2']]);
     session()->push('key.wq', 'a3');
     //session()->forget(0);
     dump(session()->all());
+
 });
 
 //Route::get('category/{alias}', ['as' => 'category.alias', 'uses' => 'ProjectControllers\CategoryController@show']);

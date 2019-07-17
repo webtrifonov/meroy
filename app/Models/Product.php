@@ -13,7 +13,7 @@ class Product extends Model
       'property_set' => 'array',
       'value_set' => 'array'
    ];
-   protected $perPage = 3;
+   protected $perPage = 9;
    public function cart_products()
    {
        return $this->hasMany(CartProduct::class);
@@ -31,7 +31,7 @@ class Product extends Model
       $product = Product::with('category')->find($id);
       $product->watched += 1;
       $product->save();
-      $product->mini_description = (strlen($product->description) > 100)? substr($product->description, 0, 250).'...' : $product->description;
+      $product->mini_description = (mb_strlen($product->description) > 100)? mb_substr($product->description, 0, 250).'...' : $product->description;
       return $product;
    }
 
@@ -46,7 +46,7 @@ class Product extends Model
 
    public static function demoNewProducts()
    {
-      return Product::with('currency')->take(self::ELEMS_IN_DEMO_BLOCK)->orderBy('updated_at', 'created_at', 'DESC')->get();
+      return Product::with('currency')->take(self::ELEMS_IN_DEMO_BLOCK)->orderBy('created_at', 'DESC')->get();
    }
    public static function demoPopularProducts()
    {

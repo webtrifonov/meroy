@@ -13,7 +13,7 @@
             </div>
             <div class="col-auto delivery_text">
                 <h2>{{ $delivery_point->title }}</h2>
-                <h4>{{ $delivery_point->city }}</h4>
+                <p>{{ $delivery_point->city }}</p>
                 <p>{{ $delivery_point->address }}</p>
             </div>
         </div>

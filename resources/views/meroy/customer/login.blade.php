@@ -10,9 +10,11 @@
         <div class="authorization_wrapper">
             <h2 class="header_text">Вход</h2>
             @if($errors->any())
-                @foreach($errors->all() as $error)
-                    <p>{{ $error }}</p>
-                @endforeach
+                <div class="error">
+                    @foreach($errors->all() as $error)
+                        <p class="error_message">{{ $error }}</p>
+                    @endforeach
+                </div>
             @endif
             <form class="authorization_form" action="{{ route('customer.login') }}" method="POST">
                 @csrf
@@ -55,9 +57,11 @@
         <div class="registration_wrapper">
             <h2 class="header_text">Регистрация</h2>
             @if($errors->any())
-                @foreach($errors->all() as $error)
-                    <p>{{ $error }}</p>
-                @endforeach
+                <div class="error">
+                    @foreach($errors->all() as $error)
+                        <p class="error_message">{{ $error }}</p>
+                    @endforeach
+                </div>
             @endif
             <form class="registration_form" action="{{ route('customer.register') }}" method="POST">
                 @csrf
